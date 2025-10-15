@@ -1,0 +1,26 @@
+.heroCtaButton {
+  padding: 1rem;
+  background-color: black;
+  border-radius: 1rem;
+  color: white;
+
+  box-shadow: 1px 1px 3px 0 rgba(255, 255, 255, 0.6) inset,
+    4px 6px 8px 0 rgba(255, 185, 0, 0.25) inset;
+  box-shadow: 1px 1px 3px 0 color(display-p3 1 1 1 / 0.6) inset,
+    4px 6px 8px 0 color(display-p3 0.9961 0.7373 0.1843 / 0.25) inset;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.heroCtaButton:hover {
+  box-shadow: none;
+  background-color: white;
+  outline: 1px solid black;
+  color: black;
+}
+
+.heroCtaButton:active {
+  transform: scale(0.99);
+}

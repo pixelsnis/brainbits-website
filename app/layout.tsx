@@ -11,12 +11,12 @@ const inter = Inter({
 const interDisplay = local({
   src: [
     {
-      path: "/fonts/InterDisplay-Medium.woff2",
+      path: "../public/fonts/InterDisplay-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "/fonts/InterDisplay-MediumItalic.woff2",
+      path: "../public/fonts/InterDisplay-MediumItalic.woff2",
       weight: "500",
       style: "italic",
     },
