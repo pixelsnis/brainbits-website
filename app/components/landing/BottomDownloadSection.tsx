@@ -1,10 +1,15 @@
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import Footer from "./Footer";
 
-export default function BottomDownloadSection() {
+export default function BottomDownloadSection({
+  showFooter = false,
+}: {
+  showFooter?: boolean;
+}) {
   return (
-    <div className="w-full gap-0 h-[560px] lg:h-[640px] relative">
+    <div className="w-full gap-0 h-[560px] lg:h-[720px] relative">
       {/* Background */}
       <div className="w-full h-full absolute left-0 top-0 z-0">
         <Image
@@ -56,6 +61,12 @@ export default function BottomDownloadSection() {
           </div>
         </div>
       </div>
+
+      {showFooter && (
+        <div className="w-full bottom-0 items-center justify-center flex absolute p-4 z-20">
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function FeatureSection({
   imageUrl: string;
 }) {
   return (
-    <div className="w-full md:w-[80%] md:max-w-[840px] flex flex-col gap-6 md:gap-8 items-stretch justify-center">
+    <div className="w-full lg:min-h-[60vh] md:w-[80%] md:max-w-[840px] flex flex-col gap-6 md:gap-8 items-stretch justify-center">
       {/* Text */}
       <div className="flex flex-col gap-2 items-stretch justify-center">
         <h2 className="text-center text-h2">{title}</h2>

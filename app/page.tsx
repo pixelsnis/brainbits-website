@@ -42,7 +42,7 @@ export default function Home() {
       />
 
       {/* Bottom Section */}
-      <BottomDownloadSection />
+      <BottomDownloadSection showFooter={!isMobile} />
     </div>
   );
 }
@@ -55,7 +55,7 @@ function Hero({
   isPortrait: boolean;
 }) {
   return (
-    <div className="w-full min-h-[90vh] relative">
+    <div className="w-full relative">
       {/* Background */}
       <div className="absolute w-full h-full z-0">
         {isMobile && (
