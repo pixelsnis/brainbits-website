@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./home.module.css";
 import clsx from "clsx";
+import FeatureSection from "./components/landing/FeatureSection";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,8 +23,22 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-0 items-stretch justify-center bg-white">
+    <div className="w-full flex flex-col gap-16 lg:gap-[5.625rem] items-center justify-center bg-white">
       <Hero isMobile={isMobile} isPortrait={isPortrait} />
+
+      {/* Feature List */}
+      <FeatureSection
+        title="Save thoughts in a blink. Never organize them."
+        subheadline="Just type it in, or speak your mind."
+        imageUrl="/images/section-1.webp"
+      />
+
+      <FeatureSection
+        title="Ask at any time."
+        subheadline="Recall anything using smart computer magic.*"
+        footnote="*Yes, it uses AI. Now please give us a $10M seed."
+        imageUrl="/images/section-2.webp"
+      />
     </div>
   );
 }
@@ -36,28 +51,35 @@ function Hero({
   isPortrait: boolean;
 }) {
   return (
-    <div className="h-screen w-full relative">
+    <div className="w-full min-h-[90vh] relative">
       {/* Background */}
-      <div className="w-full h-full z-0 absolute left-0 right-0">
-        {isPortrait && (
-          <Image src="/images/mobile-hero-bg.webp" alt="Hero Background" fill />
-        )}
-
-        {!isPortrait && (
+      <div className="absolute w-full h-full z-0">
+        {isMobile && (
           <Image
+            src="/images/mobile-hero-bg.webp"
+            alt="Hero Background"
             height={0}
             width={0}
+            sizes="100vw"
+            style={{ height: "100%", width: "100%", objectFit: "cover" }}
+          />
+        )}
+
+        {!isMobile && (
+          <Image
             src="/images/desktop-hero-bg.webp"
             alt="Hero Background"
-            style={{ width: "100%", objectFit: "cover", height: "100%" }}
+            height={0}
+            width={0}
             sizes="100vw"
+            style={{ height: "100%", width: "100%", objectFit: "cover" }}
           />
         )}
       </div>
 
       {/* Content */}
-      <div className="w-full h-full z-1 absolute left-0 right-0 flex flex-col items-center justify-start">
-        <div className="w-full md:max-w-[28rem] flex flex-col gap-6 md:gap-4 items-center justify-center mt-16 xl:pt-[12svh] px-4 md:px-0">
+      <div className="w-full flex flex-col items-center justify-center relative">
+        <div className="w-full md:max-w-[28rem] flex flex-col gap-6 md:gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
           <h1 className="text-h1 text-center">
             Your <i>Personal</i>
             <br />
