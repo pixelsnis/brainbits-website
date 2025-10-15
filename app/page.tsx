@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./home.module.css";
 import clsx from "clsx";
 import FeatureSection from "./components/landing/FeatureSection";
+import BottomDownloadSection from "./components/landing/BottomDownloadSection";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,6 +40,9 @@ export default function Home() {
         footnote="*Yes, it uses AI. Now please give us a $10M seed."
         imageUrl="/images/section-2.webp"
       />
+
+      {/* Bottom Section */}
+      <BottomDownloadSection />
     </div>
   );
 }
