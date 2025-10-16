@@ -41,14 +41,14 @@ export default function BottomDownloadSection() {
                   className={clsx(styles.heroCtaButton, "text-button")}
                   onClick={(e) => {
                     e.preventDefault();
-                    // Redirect to App Store in a new tab
+                    // Redirect to early access page in a new tab
                     const link =
-                      "https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169";
+                      "https://aneeshhegde.notion.site/28735e141c2580fea17cdd77fc14cfd3?pvs=105";
 
                     window.open(link, "_blank");
                   }}
                 >
-                  Get it on the App Store
+                  Get early access
                 </button>
               </Magnet>
 
