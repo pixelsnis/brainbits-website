@@ -150,8 +150,11 @@ export default function TermsPage() {
             <p>
               The Service is provided "as is" without warranties. We disclaim
               all warranties, express or implied. To the fullest extent
-              permitted by law, we are not liable for indirect, incidental, or
-              consequential damages. Our total liability shall not exceed $100.
+              permitted by law, we take no liability whatsoever for any direct,
+              indirect, incidental, consequential, special, or exemplary
+              damages, including but not limited to damages for loss of profits,
+              goodwill, use, data, or other intangible losses, resulting from
+              your use of the Service.
             </p>
           </ContentSection>
 
