@@ -123,11 +123,11 @@ export default function TermsPage() {
               Your privacy is important. Please review our Privacy Policy at{" "}
               <a
                 className="text-body text-blue-500"
-                href="https://brainbits.app/privacy"
+                href="https://usebrainbits.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                brainbits.app/privacy
+                usebrainbits.com/privacy
               </a>{" "}
               for details on how we handle your data, including storage,
               processing, and analytics.
@@ -181,9 +181,9 @@ export default function TermsPage() {
               Questions? Email{" "}
               <a
                 className="text-body text-blue-500"
-                href="mailto:support@brainbits.app"
+                href="mailto:support@usebrainbits.com"
               >
-                support@brainbits.app
+                support@usebrainbits.com
               </a>
               .
             </p>
