@@ -6,6 +6,7 @@ import clsx from "clsx";
 import FeatureSection from "../components/landing/FeatureSection";
 import BottomDownloadSection from "../components/landing/BottomDownloadSection";
 import Navbar from "../components/landing/Navbar";
+import HeroBackground from "../components/landing/HeroBackground";
 import { BlurIn } from "@/components/animation/BlurIn";
 import Magnet from "@/components/Magnet";
 import { useMediaQuery } from "react-responsive";
@@ -45,29 +46,7 @@ function Hero() {
   return (
     <div className="w-full relative">
       {/* Background */}
-      <div className="absolute w-full h-full z-0">
-        {isSm && (
-          <Image
-            src="/images/mobile-hero-bg.webp"
-            alt="Hero Background"
-            height={0}
-            width={0}
-            sizes="100vw"
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
-          />
-        )}
-
-        {!isSm && (
-          <Image
-            src="/images/desktop-hero-bg.webp"
-            alt="Hero Background"
-            height={0}
-            width={0}
-            sizes="100vw"
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
-          />
-        )}
-      </div>
+      <HeroBackground usesGridOverlay={true} />
 
       {/* Content */}
       <div className="w-full flex flex-col items-center justify-center relative">
