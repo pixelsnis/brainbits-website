@@ -8,8 +8,8 @@ import FeatureSection from "../components/landing/FeatureSection";
 import BottomDownloadSection from "../components/landing/BottomDownloadSection";
 import Navbar from "../components/landing/Navbar";
 import BlurText from "@/components/BlurText";
-import AnimatedContent from "@/components/AnimatedContent";
 import { BlurIn } from "@/components/animation/BlurIn";
+import Magnet from "@/components/Magnet";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -32,18 +32,22 @@ export default function Home() {
       <Hero isMobile={isMobile} isPortrait={isPortrait} />
 
       {/* Feature List */}
-      <FeatureSection
-        title="Save thoughts in a blink. Never organize them."
-        subheadline="Just type it in, or speak your mind."
-        imageUrl="/images/section-1.webp"
-      />
+      <BlurIn className="w-full items-center justify-center flex" delay={0.2}>
+        <FeatureSection
+          title="Save thoughts in a blink. Never organize them."
+          subheadline="Just type it in, or speak your mind."
+          imageUrl="/images/section-1.webp"
+        />
+      </BlurIn>
 
-      <FeatureSection
-        title="Ask at any time."
-        subheadline="Recall anything using smart computer magic.*"
-        footnote="*Yes, it uses AI. Now please give us a $10M seed."
-        imageUrl="/images/section-2.webp"
-      />
+      <BlurIn className="w-full items-center justify-center flex" delay={0.5}>
+        <FeatureSection
+          title="Ask at any time."
+          subheadline="Recall anything using smart computer magic.*"
+          footnote="*Yes, it uses AI. Now please give us a $10M seed."
+          imageUrl="/images/section-2.webp"
+        />
+      </BlurIn>
 
       {/* Bottom Section */}
       <BottomDownloadSection showFooter={!isMobile} />
@@ -91,11 +95,13 @@ function Hero({
 
         <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
           {isPortrait && (
-            <img
-              src="/logo.svg"
-              alt="Logo"
-              className="h-8 w-8 object-contain"
-            />
+            <BlurIn whileInView={false}>
+              <img
+                src="/logo.svg"
+                alt="Logo"
+                className="h-8 w-8 object-contain"
+              />
+            </BlurIn>
           )}
 
           {!isMobile && (
@@ -110,38 +116,46 @@ function Hero({
           )}
 
           {isMobile && (
-            <h1 className="text-h1 text-center">
-              Your <i>Personal</i>
-              <br />
-              Memory Store.
-            </h1>
+            <BlurIn whileInView={false}>
+              <h1 className="text-h1 text-center">
+                Your <i>Personal</i>
+                <br />
+                Memory Store.
+              </h1>
+            </BlurIn>
           )}
 
-          <p className="text-center">
-            Brainbits is a self-organizing, intelligent note store for all the
-            little things you want to remember.
-          </p>
+          <BlurIn delay={0.5}>
+            <p className="text-center">
+              Brainbits is a self-organizing, intelligent note store for all the
+              little things you want to remember.
+            </p>
+          </BlurIn>
 
           {/* CTA */}
-          <div className="flex flex-col gap-3 items-center justify-center">
-            <button
-              className={clsx(styles.heroCtaButton, "text-button")}
-              onClick={(e) => {
-                e.preventDefault();
-                // Redirect to App Store in a new tab
-                const link =
-                  "https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169";
+          <BlurIn delay={0.7}>
+            <div className="flex flex-col gap-3 items-center justify-center">
+              <Magnet padding={500} disabled={false} magnetStrength={75}>
+                <button
+                  className={clsx(styles.heroCtaButton, "text-button")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Redirect to App Store in a new tab
+                    const link =
+                      "https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169";
 
-                window.open(link, "_blank");
-              }}
-            >
-              Get it on the App Store
-            </button>
+                    window.open(link, "_blank");
+                  }}
+                >
+                  Get it on the App Store
+                </button>
+              </Magnet>
 
-            <p className="text-footnote text-label-secondary  ">
-              For iOS 26 and above
-            </p>
-          </div>
+              <p className="text-footnote text-label-secondary  ">
+                For iOS 26 and above
+              </p>
+            </div>
+          </BlurIn>
         </div>
 
         {/* Product Screenshots */}

@@ -2,6 +2,8 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Footer from "./Footer";
+import Magnet from "../Magnet";
+import { BlurIn } from "../animation/BlurIn";
 
 export default function BottomDownloadSection({
   showFooter = false,
@@ -23,43 +25,47 @@ export default function BottomDownloadSection({
       </div>
 
       <div className="w-full h-full items-center justify-start md:justify-between pt-8 lg:pt-36 absolute left-0 top-0 z-10">
-        {/* Content */}
-        <div className="flex flex-col gap-6 items-center justify-center">
-          <Image
-            height={1024}
-            width={1024}
-            src="/images/app-icon.webp"
-            alt="App icon"
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col gap-3">
-            <h2 className="text-h2 text-center">Try Brainbits for free.</h2>
-            <p className="text-body text-center">
-              Your first 50 memories are on the house.
-            </p>
+        <BlurIn delay={0.3}>
+          {/* Content */}
+          <div className="flex flex-col gap-6 items-center justify-center">
+            <Image
+              height={1024}
+              width={1024}
+              src="/images/app-icon.webp"
+              alt="App icon"
+              className="w-16 h-16"
+            />
+            <div className="flex flex-col gap-3">
+              <h2 className="text-h2 text-center">Try Brainbits for free.</h2>
+              <p className="text-body text-center">
+                Your first 50 memories are on the house.
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col gap-3 items-center justify-center">
+              <Magnet padding={500} disabled={false} magnetStrength={75}>
+                <button
+                  className={clsx(styles.heroCtaButton, "text-button")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // Redirect to App Store in a new tab
+                    const link =
+                      "https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169";
+
+                    window.open(link, "_blank");
+                  }}
+                >
+                  Get it on the App Store
+                </button>
+              </Magnet>
+
+              <p className="text-footnote text-label-secondary  ">
+                For iOS 26 and above
+              </p>
+            </div>
           </div>
-
-          {/* CTA */}
-          <div className="flex flex-col gap-3 items-center justify-center">
-            <button
-              className={clsx(styles.heroCtaButton, "text-button")}
-              onClick={(e) => {
-                e.preventDefault();
-                // Redirect to App Store in a new tab
-                const link =
-                  "https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169";
-
-                window.open(link, "_blank");
-              }}
-            >
-              Get it on the App Store
-            </button>
-
-            <p className="text-footnote text-label-secondary  ">
-              For iOS 26 and above
-            </p>
-          </div>
-        </div>
+        </BlurIn>
       </div>
 
       {showFooter && (
