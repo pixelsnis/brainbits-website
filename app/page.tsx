@@ -50,7 +50,7 @@ export default function Home() {
       </BlurIn>
 
       {/* Bottom Section */}
-      <BottomDownloadSection showFooter={!isMobile} />
+      <BottomDownloadSection />
     </div>
   );
 }
@@ -95,7 +95,7 @@ function Hero({
 
         <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
           {isPortrait && (
-            <BlurIn>
+            <BlurIn whileInView={false}>
               <img
                 src="/logo.svg"
                 alt="Logo"
@@ -116,7 +116,7 @@ function Hero({
           )}
 
           {isMobile && (
-            <BlurIn>
+            <BlurIn whileInView={false} delay={0.1}>
               <h1 className="text-h1 text-center">
                 Your <i>Personal</i>
                 <br />
@@ -125,7 +125,7 @@ function Hero({
             </BlurIn>
           )}
 
-          <BlurIn delay={0.5}>
+          <BlurIn whileInView={false} delay={0.5}>
             <p className="text-center">
               Brainbits is a self-organizing, intelligent note store for all the
               little things you want to remember.

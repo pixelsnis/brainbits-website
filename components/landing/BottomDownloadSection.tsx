@@ -4,14 +4,14 @@ import Image from "next/image";
 import Footer from "./Footer";
 import Magnet from "../Magnet";
 import { BlurIn } from "../animation/BlurIn";
+import { useMediaQuery } from "react-responsive";
+import MobileFooter from "../misc/MobileFooter";
 
-export default function BottomDownloadSection({
-  showFooter = false,
-}: {
-  showFooter?: boolean;
-}) {
+export default function BottomDownloadSection() {
+  const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
+
   return (
-    <div className="w-full gap-0 h-[560px] lg:h-[720px] relative">
+    <div className="w-full gap-0 h-[720px] relative">
       {/* Background */}
       <div className="w-full h-full absolute left-0 top-0 z-0">
         <Image
@@ -68,9 +68,15 @@ export default function BottomDownloadSection({
         </BlurIn>
       </div>
 
-      {showFooter && (
+      {isLg && (
         <div className="w-full bottom-0 items-center justify-center flex absolute p-4 z-20">
           <Footer />
+        </div>
+      )}
+
+      {!isLg && (
+        <div className="w-full bottom-0 items-center justify-center flex absolute">
+          <MobileFooter withBackground={false} />
         </div>
       )}
     </div>
