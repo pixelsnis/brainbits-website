@@ -7,6 +7,9 @@ import clsx from "clsx";
 import FeatureSection from "../components/landing/FeatureSection";
 import BottomDownloadSection from "../components/landing/BottomDownloadSection";
 import Navbar from "../components/landing/Navbar";
+import BlurText from "@/components/BlurText";
+import AnimatedContent from "@/components/AnimatedContent";
+import { BlurIn } from "@/components/animation/BlurIn";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -86,7 +89,7 @@ function Hero({
       <div className="w-full flex flex-col items-center justify-center relative">
         {!isPortrait && <Navbar />}
 
-        <div className="w-full md:max-w-[28rem] flex flex-col gap-6 md:gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
+        <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
           {isPortrait && (
             <img
               src="/logo.svg"
@@ -94,11 +97,25 @@ function Hero({
               className="h-8 w-8 object-contain"
             />
           )}
-          <h1 className="text-h1 text-center">
-            Your <i>Personal</i>
-            <br />
-            Memory Store.
-          </h1>
+
+          {!isMobile && (
+            <BlurText
+              text="Your Personal Memory Store."
+              className="text-h1 text-center"
+              direction="bottom"
+              easing={"easeOut"}
+              stepDuration={0.6}
+              delay={80}
+            />
+          )}
+
+          {isMobile && (
+            <h1 className="text-h1 text-center">
+              Your <i>Personal</i>
+              <br />
+              Memory Store.
+            </h1>
+          )}
 
           <p className="text-center">
             Brainbits is a self-organizing, intelligent note store for all the
@@ -140,14 +157,16 @@ function Hero({
         )}
 
         {!isMobile && (
-          <Image
-            src="/images/desktop-hero-screenshot.webp"
-            alt="Product Screenshot"
-            height={0}
-            width={0}
-            sizes="100vw"
-            style={{ height: "auto", width: "100%", maxWidth: "960px" }}
-          />
+          <BlurIn className="w-full max-w-[960px]">
+            <Image
+              src="/images/desktop-hero-screenshot.webp"
+              alt="Product Screenshot"
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{ height: "auto", width: "100%", maxWidth: "960px" }}
+            />
+          </BlurIn>
         )}
       </div>
     </div>
