@@ -8,8 +8,8 @@ export default function Footer() {
           <img src="/logo.svg" alt="Logo" className="h-4 w-4 object-contain" />
         </div>
         <FooterLink href="/" label="Home" />
-        <FooterLink href="/privacy" label="Privacy Policy" />
-        <FooterLink href="/terms" label="Terms of Service" />
+        <FooterLink href="/privacy" label="Privacy" />
+        <FooterLink href="/terms" label="Terms" />
       </div>
 
       <div className="flex flex-row gap-3 items-start justify-start">
