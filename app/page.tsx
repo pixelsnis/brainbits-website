@@ -53,16 +53,6 @@ function Hero() {
         {!isSm && <Navbar />}
 
         <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
-          {isSm && (
-            <BlurIn whileInView={false}>
-              <img
-                src="/logo.svg"
-                alt="Logo"
-                className="h-8 w-8 object-contain"
-              />
-            </BlurIn>
-          )}
-
           <BlurIn whileInView={false} delay={0.1}>
             <h1 className="text-h1 text-center">
               Your <i>Personal</i>

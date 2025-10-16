@@ -37,12 +37,13 @@ export default function HeroBackground({
       )}
 
       {usesGridOverlay && (
-        <div className="absolute inset-0 opacity-50 flex items-center justify-center">
+        <div className="absolute inset-0 opacity-50 flex items-center justify-center overflow-hidden">
           <Image
             src="/images/grid-overlay.svg"
             alt="Grid Overlay"
             fill
-            style={{ objectFit: "contain" }}
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center" }}
           />
         </div>
       )}
