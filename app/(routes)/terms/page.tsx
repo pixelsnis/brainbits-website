@@ -66,8 +66,8 @@ export default function TermsPage() {
               (referred to as "Bits"). Notes are stored locally on your device
               and can be synced to our servers for processing, including
               transcription of recordings and analysis to help organize your
-              memories. You may use the Service for personal, non-commercial
-              purposes only.
+              memories. You may use the Service for personal or commercial
+              purposes.
             </p>
           </ContentSection>
 
