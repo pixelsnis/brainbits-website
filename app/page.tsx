@@ -6,6 +6,7 @@ import styles from "./home.module.css";
 import clsx from "clsx";
 import FeatureSection from "./components/landing/FeatureSection";
 import BottomDownloadSection from "./components/landing/BottomDownloadSection";
+import Navbar from "./components/landing/Navbar";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -83,7 +84,16 @@ function Hero({
 
       {/* Content */}
       <div className="w-full flex flex-col items-center justify-center relative">
+        {!isPortrait && <Navbar />}
+
         <div className="w-full md:max-w-[28rem] flex flex-col gap-6 md:gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
+          {isPortrait && (
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              className="h-8 w-8 object-contain"
+            />
+          )}
           <h1 className="text-h1 text-center">
             Your <i>Personal</i>
             <br />

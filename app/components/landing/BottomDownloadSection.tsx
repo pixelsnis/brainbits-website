@@ -22,7 +22,7 @@ export default function BottomDownloadSection({
         />
       </div>
 
-      <div className="w-full h-full items-center justify-start md:justify-between pt-6 lg:pt-16 absolute left-0 top-0 z-10">
+      <div className="w-full h-full items-center justify-start md:justify-between pt-8 lg:pt-36 absolute left-0 top-0 z-10">
         {/* Content */}
         <div className="flex flex-col gap-6 items-center justify-center">
           <Image
