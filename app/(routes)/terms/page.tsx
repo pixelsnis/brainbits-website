@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from "@/app/components/landing/Footer";
-import Navbar from "@/app/components/landing/Navbar";
+import Footer from "@/components/landing/Footer";
+import Navbar from "@/components/landing/Navbar";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 

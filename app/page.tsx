@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./home.module.css";
 import clsx from "clsx";
-import FeatureSection from "./components/landing/FeatureSection";
-import BottomDownloadSection from "./components/landing/BottomDownloadSection";
-import Navbar from "./components/landing/Navbar";
+import FeatureSection from "../components/landing/FeatureSection";
+import BottomDownloadSection from "../components/landing/BottomDownloadSection";
+import Navbar from "../components/landing/Navbar";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
