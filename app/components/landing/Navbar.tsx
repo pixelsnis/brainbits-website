@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   return (
     <div className="w-full flex flex-row justify-between items-center">
-      <div className="px-6">
+      <Link href="/" className="px-6">
         <img src="/logo.svg" alt="Logo" className="h-6 w-6 object-contain" />
-      </div>
+      </Link>
 
       <div className="flex flex-row gap-0 px-3 items-center justify-center">
         <NavbarHref href="/privacy" label="Privacy" />
@@ -22,8 +25,16 @@ export default function Navbar() {
 }
 
 function NavbarHref({ href, label }: { href: string; label: string }) {
+  const currentPath = usePathname();
+  const selected = currentPath === href;
+
   return (
-    <Link href={href} className="text-body px-4 py-3 cursor-pointer">
+    <Link
+      href={href}
+      className={`text-body px-4 py-3 cursor-pointer ${
+        selected ? "font-semibold" : ""
+      }`}
+    >
       {label}
     </Link>
   );
