@@ -14,10 +14,10 @@ export default function Navbar() {
         <NavbarHref href="/privacy" label="Privacy" />
         <NavbarHref href="/terms" label="Terms" />
         <a
-          href="https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169"
+          href="https://aneeshhegde.notion.site/28735e141c2580fea17cdd77fc14cfd3?pvs=105"
           className="text-body px-4 py-3 no-underline text-black"
         >
-          Download
+          Get Early Access
         </a>
       </div>
     </div>
