@@ -95,7 +95,7 @@ function Hero({
 
         <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
           {isPortrait && (
-            <BlurIn whileInView={false}>
+            <BlurIn>
               <img
                 src="/logo.svg"
                 alt="Logo"
@@ -116,7 +116,7 @@ function Hero({
           )}
 
           {isMobile && (
-            <BlurIn whileInView={false}>
+            <BlurIn>
               <h1 className="text-h1 text-center">
                 Your <i>Personal</i>
                 <br />
