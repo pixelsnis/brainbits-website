@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FooterBackground from "./FooterBackground";
 
 export default function MobileFooter({
   withBackground = true,
@@ -10,15 +11,7 @@ export default function MobileFooter({
     <div className="w-full h-[30vh] relative">
       {withBackground && (
         <>
-          <Image
-            src="/images/footer-bg.webp"
-            alt="Footer BG"
-            height={0}
-            width={0}
-            sizes="100vw"
-            className="w-full h-full object-cover absolute left-0 top-0 z-0 object-bottom"
-          />
-
+          <FooterBackground usesGridOverlay={true} />
           <div className="w-full h-full bg-gradient-to-b from-white to-transparent absolute left-0 top-0 z-1" />
         </>
       )}

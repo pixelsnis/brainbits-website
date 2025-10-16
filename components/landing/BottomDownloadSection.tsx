@@ -6,6 +6,7 @@ import Magnet from "../Magnet";
 import { BlurIn } from "../animation/BlurIn";
 import { useMediaQuery } from "react-responsive";
 import MobileFooter from "../misc/MobileFooter";
+import FooterBackground from "../misc/FooterBackground";
 
 export default function BottomDownloadSection() {
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -13,16 +14,7 @@ export default function BottomDownloadSection() {
   return (
     <div className="w-full gap-0 h-[720px] relative">
       {/* Background */}
-      <div className="w-full h-full absolute left-0 top-0 z-0">
-        <Image
-          src="/images/footer-bg.webp"
-          alt="Background"
-          height={0}
-          width={0}
-          sizes="100vw"
-          className="w-full h-full object-cover object-bottom"
-        />
-      </div>
+      <FooterBackground usesGridOverlay={true} />
 
       <div className="w-full h-full items-center justify-start md:justify-between pt-8 lg:pt-36 absolute left-0 top-0 z-10">
         <BlurIn delay={0.3}>
