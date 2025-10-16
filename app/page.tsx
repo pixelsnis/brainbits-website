@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./home.module.css";
 import clsx from "clsx";
@@ -10,26 +9,12 @@ import Navbar from "../components/landing/Navbar";
 import BlurText from "@/components/BlurText";
 import { BlurIn } from "@/components/animation/BlurIn";
 import Magnet from "@/components/Magnet";
+import { useMediaQuery } from "react-responsive";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
-
-  useEffect(() => {
-    const checkViewport = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsPortrait(window.innerHeight > window.innerWidth);
-    };
-
-    checkViewport();
-    window.addEventListener("resize", checkViewport);
-
-    return () => window.removeEventListener("resize", checkViewport);
-  }, []);
-
   return (
     <div className="w-full flex flex-col gap-16 lg:gap-[5.625rem] items-center justify-center bg-white">
-      <Hero isMobile={isMobile} isPortrait={isPortrait} />
+      <Hero />
 
       {/* Feature List */}
       <BlurIn className="w-full items-center justify-center flex" delay={0.2}>
@@ -55,18 +40,14 @@ export default function Home() {
   );
 }
 
-function Hero({
-  isMobile,
-  isPortrait,
-}: {
-  isMobile: boolean;
-  isPortrait: boolean;
-}) {
+function Hero() {
+  const isSm = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
     <div className="w-full relative">
       {/* Background */}
       <div className="absolute w-full h-full z-0">
-        {isMobile && (
+        {isSm && (
           <Image
             src="/images/mobile-hero-bg.webp"
             alt="Hero Background"
@@ -77,7 +58,7 @@ function Hero({
           />
         )}
 
-        {!isMobile && (
+        {!isSm && (
           <Image
             src="/images/desktop-hero-bg.webp"
             alt="Hero Background"
@@ -91,10 +72,10 @@ function Hero({
 
       {/* Content */}
       <div className="w-full flex flex-col items-center justify-center relative">
-        {!isPortrait && <Navbar />}
+        {!isSm && <Navbar />}
 
         <div className="w-full md:max-w-[28rem] flex flex-col gap-4 items-center justify-center mt-16 lg:mt-[12svh] px-4 md:px-0">
-          {isPortrait && (
+          {isSm && (
             <BlurIn whileInView={false}>
               <img
                 src="/logo.svg"
@@ -104,7 +85,7 @@ function Hero({
             </BlurIn>
           )}
 
-          {!isMobile && (
+          {!isSm && (
             <BlurText
               text="Your Personal Memory Store."
               className="text-h1 text-center"
@@ -115,7 +96,7 @@ function Hero({
             />
           )}
 
-          {isMobile && (
+          {isSm && (
             <BlurIn whileInView={false} delay={0.1}>
               <h1 className="text-h1 text-center">
                 Your <i>Personal</i>
@@ -159,7 +140,7 @@ function Hero({
         </div>
 
         {/* Product Screenshots */}
-        {isMobile && (
+        {isSm && (
           <Image
             src="/images/mobile-hero-screenshot.webp"
             alt="Product Screenshot"
@@ -170,7 +151,7 @@ function Hero({
           />
         )}
 
-        {!isMobile && (
+        {!isSm && (
           <BlurIn className="w-full max-w-[960px]">
             <Image
               src="/images/desktop-hero-screenshot.webp"
