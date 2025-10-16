@@ -6,7 +6,6 @@ import clsx from "clsx";
 import FeatureSection from "../components/landing/FeatureSection";
 import BottomDownloadSection from "../components/landing/BottomDownloadSection";
 import Navbar from "../components/landing/Navbar";
-import BlurText from "@/components/BlurText";
 import { BlurIn } from "@/components/animation/BlurIn";
 import Magnet from "@/components/Magnet";
 import { useMediaQuery } from "react-responsive";
@@ -85,26 +84,13 @@ function Hero() {
             </BlurIn>
           )}
 
-          {!isSm && (
-            <BlurText
-              text="Your Personal Memory Store."
-              className="text-h1 text-center"
-              direction="bottom"
-              easing={"easeOut"}
-              stepDuration={0.6}
-              delay={80}
-            />
-          )}
-
-          {isSm && (
-            <BlurIn whileInView={false} delay={0.1}>
-              <h1 className="text-h1 text-center">
-                Your <i>Personal</i>
-                <br />
-                Memory Store.
-              </h1>
-            </BlurIn>
-          )}
+          <BlurIn whileInView={false} delay={0.1}>
+            <h1 className="text-h1 text-center">
+              Your <i>Personal</i>
+              <br />
+              Memory Store.
+            </h1>
+          </BlurIn>
 
           <BlurIn whileInView={false} delay={0.5}>
             <p className="text-center">
@@ -141,26 +127,30 @@ function Hero() {
 
         {/* Product Screenshots */}
         {isSm && (
-          <Image
-            src="/images/mobile-hero-screenshot.webp"
-            alt="Product Screenshot"
-            height={0}
-            width={0}
-            sizes="100vw"
-            style={{ height: "auto", width: "100%" }}
-          />
+          <div className="relative w-full">
+            <Image
+              src="/images/mobile-hero-screenshot.webp"
+              alt="Product Screenshot"
+              height={0}
+              width={0}
+              sizes="100vw"
+              style={{ height: "auto", width: "100%" }}
+            />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+          </div>
         )}
 
         {!isSm && (
-          <BlurIn className="w-full max-w-[960px]">
+          <BlurIn className="w-full max-w-[1020px] relative">
             <Image
               src="/images/desktop-hero-screenshot.webp"
               alt="Product Screenshot"
               height={0}
               width={0}
               sizes="100vw"
-              style={{ height: "auto", width: "100%", maxWidth: "960px" }}
+              style={{ height: "auto", width: "100%", maxWidth: "1020px" }}
             />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
           </BlurIn>
         )}
       </div>
