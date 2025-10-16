@@ -16,7 +16,7 @@ export default function MobileFooter({
         </>
       )}
 
-      <div className="w-full h-full absolute left-0 bottom-0 flex flex-col items-start justify-end gap-4 p-4 pb-8 z-2">
+      <div className="w-full h-full absolute left-0 bottom-0 flex flex-col items-start justify-end gap-4 p-4 pb-8 z-10">
         <img src="/logo.svg" className="w-8 h-8" />
 
         <div className="w-full flex flex-row gap-4 items-start justify-start">
@@ -33,12 +33,12 @@ export default function MobileFooter({
               Home
             </Link>
 
-            <Link
+            {/* <Link
               href="https://apps.apple.com/us/app/brainbits-personal-memory/id6753618169"
               className="text-black/50"
             >
               Download
-            </Link>
+            </Link> */}
 
             <Link href="/privacy" className="text-black/50">
               Privacy
