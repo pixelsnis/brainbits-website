@@ -27,7 +27,7 @@ const interDisplay = local({
 export const metadata: Metadata = {
   title: "Brainbits - Your Personal Memory Store",
   description:
-    "Brainbits is a self-organizing, intelligent note store for all the little things you want to remember. Save thoughts in a blink, never organize them, and recall anything using AI.",
+    "Brainbits is a self-organizing, intelligent note store that helps you recall anything using AI.",
   keywords: [
     "personal memory",
     "note taking",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Brainbits - Your Personal Memory Store",
     description:
-      "Brainbits is a self-organizing, intelligent note store for all the little things you want to remember. Save thoughts in a blink, never organize them, and recall anything using AI.",
+      "Brainbits is a self-organizing, intelligent note store that helps you recall anything using AI.",
     url: "https://usebrainbits.com",
     siteName: "Brainbits",
     locale: "en_US",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brainbits - Your Personal Memory Store",
     description:
-      "Brainbits is a self-organizing, intelligent note store for all the little things you want to remember. Save thoughts in a blink, never organize them, and recall anything using AI.",
+      "Brainbits is a self-organizing, intelligent note store that helps you recall anything using AI.",
     images: ["https://assets.usebrainbits.com/Website/og-image.jpg"],
   },
   robots: {

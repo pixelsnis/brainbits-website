@@ -30,7 +30,7 @@ export default function BottomDownloadSection() {
             <div className="flex flex-col gap-3">
               <h2 className="text-h2 text-center">Try Brainbits for free.</h2>
               <p className="text-body text-center">
-                Get 250 credits to start. No credit card required.
+                Get 150 credits to start. No trial sign-up required.
               </p>
             </div>
 

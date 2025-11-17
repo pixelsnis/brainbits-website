@@ -19,9 +19,16 @@ export default function Home() {
       {/* Feature List */}
       <BlurIn className="w-full items-center justify-center flex" delay={0.2}>
         <FeatureSection
-          title="Save thoughts in a blink. Never organize them."
+          title={
+            <>
+              Save thoughts in a blink.
+              <br className="md:hidden" />
+              Never organize them.
+            </>
+          }
           subheadline="Just type it in, or speak your mind."
           imageUrl="/images/section-1.webp"
+          imageAlt="A user capturing that they put their keys in the bag using Brainbits."
         />
       </BlurIn>
 
@@ -31,6 +38,7 @@ export default function Home() {
           subheadline="Recall anything using smart computer magic.*"
           footnote="*Yes, it uses AI. Now please give us a $10M seed."
           imageUrl="/images/section-2.webp"
+          imageAlt="A user asking Brainbits where they kept their keys and getting an instant answer."
         />
       </BlurIn>
 
@@ -99,7 +107,7 @@ function Hero() {
           <div className="relative w-full">
             <Image
               src="/images/mobile-hero-screenshot.webp"
-              alt="Product Screenshot"
+              alt="Two screens of the Brainbits iOS app showing quick note capture and AI-powered quick recall."
               height={0}
               width={0}
               sizes="100vw"
@@ -113,7 +121,7 @@ function Hero() {
           <BlurIn className="w-full max-w-[1020px] relative">
             <Image
               src="/images/desktop-hero-screenshot.webp"
-              alt="Product Screenshot"
+              alt="Two screens of the Brainbits iOS app showing quick note capture and AI-powered quick recall."
               height={0}
               width={0}
               sizes="100vw"

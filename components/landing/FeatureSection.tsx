@@ -5,11 +5,13 @@ export default function FeatureSection({
   subheadline,
   footnote,
   imageUrl,
+  imageAlt,
 }: {
-  title: string;
+  title: React.ReactNode;
   subheadline: string;
   footnote?: string | undefined;
   imageUrl: string;
+  imageAlt: string;
 }) {
   return (
     <div className="w-full lg:min-h-[60vh] md:w-[80%] md:max-w-[840px] flex flex-col gap-6 md:gap-8 items-stretch justify-center">
@@ -27,7 +29,7 @@ export default function FeatureSection({
       {/* Image */}
       <Image
         src={imageUrl}
-        alt={title}
+        alt={imageAlt}
         height={0}
         width={0}
         sizes="100vw"
