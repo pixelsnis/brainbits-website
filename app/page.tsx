@@ -10,6 +10,7 @@ import HeroBackground from "../components/landing/HeroBackground";
 import { BlurIn } from "@/components/animation/BlurIn";
 import Magnet from "@/components/Magnet";
 import { useMediaQuery } from "react-responsive";
+import { APP_STORE_URL } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -84,14 +85,10 @@ function Hero() {
                   className={clsx(styles.heroCtaButton, "text-button")}
                   onClick={(e) => {
                     e.preventDefault();
-                    // Redirect to early access page in a new tab
-                    const link =
-                      "https://aneeshhegde.notion.site/28735e141c2580fea17cdd77fc14cfd3?pvs=105";
-
-                    window.open(link, "_blank");
+                    window.open(APP_STORE_URL, "_blank");
                   }}
                 >
-                  Get early access
+                  Download on the App Store
                 </button>
               </Magnet>
 

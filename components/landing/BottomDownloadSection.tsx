@@ -7,6 +7,7 @@ import { BlurIn } from "../animation/BlurIn";
 import { useMediaQuery } from "react-responsive";
 import MobileFooter from "../misc/MobileFooter";
 import FooterBackground from "../misc/FooterBackground";
+import { APP_STORE_URL } from "@/lib/constants";
 
 export default function BottomDownloadSection() {
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
@@ -41,14 +42,10 @@ export default function BottomDownloadSection() {
                   className={clsx(styles.heroCtaButton, "text-button")}
                   onClick={(e) => {
                     e.preventDefault();
-                    // Redirect to early access page in a new tab
-                    const link =
-                      "https://aneeshhegde.notion.site/28735e141c2580fea17cdd77fc14cfd3?pvs=105";
-
-                    window.open(link, "_blank");
+                    window.open(APP_STORE_URL, "_blank");
                   }}
                 >
-                  Get early access
+                  Get it on the App Store
                 </button>
               </Magnet>
 

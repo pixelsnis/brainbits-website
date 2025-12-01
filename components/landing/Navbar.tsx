@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { APP_STORE_URL } from "@/lib/constants";
 
 export default function Navbar() {
   return (
@@ -14,10 +15,10 @@ export default function Navbar() {
         <NavbarHref href="/privacy" label="Privacy" />
         <NavbarHref href="/terms" label="Terms" />
         <a
-          href="https://aneeshhegde.notion.site/28735e141c2580fea17cdd77fc14cfd3?pvs=105"
-          className="text-body px-4 py-3 no-underline text-black"
+          href={APP_STORE_URL}
+          className="text-body px-4 py-3 no-underline text-black font-semibold"
         >
-          Get Early Access
+          Download
         </a>
       </div>
     </div>
