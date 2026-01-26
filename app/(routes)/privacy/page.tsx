@@ -30,7 +30,7 @@ export default function PrivacyPage() {
               your data is accessed without your explicit action.
             </p>
             <p className="text-body text-label-secondary">
-              Last updated on 16 October 2025.
+              Last updated on 26 January 2026.
             </p>
           </div>
 
@@ -44,27 +44,41 @@ export default function PrivacyPage() {
             </p>
             <p>
               Recordings are automatically transcribed, and any text content in
-              a stored note (referred to as "Bit" from now), including
-              transcriptions, is used to:
+              a stored note, including transcriptions, is used to:
             </p>
             <ul className="gap-3 flex flex-col list-decimal list-inside">
               <li>
-                Perform sentiment analysis on the content for categorization
-                purposes;
+                Summarize the content for better organization and retrieval;
               </li>
               <li>
                 Generate memories for the AI agent to reference for future
                 answers; and
               </li>
               <li>
-                Create any other entities, such as reminders or tasks, based on
-                your Bit's content.
+                Create any other entities, such as reminders, tasks, or Super
+                Pages, based on your note's content.
               </li>
             </ul>
             <p>
-              Generated memories based on your Bits are only used to provide
+              Generated memories based on your notes are only used to provide
               context to the AI agent when answering your questions. They are
               never used for marketing, advertising, or any other purpose.
+            </p>
+          </ContentSection>
+
+          <Divider />
+
+          <ContentSection title="Super Pages">
+            <p>
+              Super Pages are user-defined pages that update based on your
+              notes. Your data is used for this purely for the purpose of
+              generating new notes and is processed by the server.
+            </p>
+            <p>
+              Super Pages are not analyzed outside of the scope of creating and
+              updating their content. They are not used for any marketing
+              purposes, and the content of a Super Page is never disclosed to
+              anyone.
             </p>
           </ContentSection>
 
