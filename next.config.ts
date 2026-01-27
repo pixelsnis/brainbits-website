@@ -6,9 +6,14 @@ const nextConfig: NextConfig = {
       {
         source: "/threads",
         destination:
-          "https://apps.apple.com/in/app/brainbits-notes-memory/id6753618169?utm_source=Organic&utm_medium=Threads&utm_campaign=Brainbits",
+          "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=Threads&mt=8",
         permanent: false,
       },
+      {
+        source: "/reddit",
+        destination: "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=Reddit&mt=8",
+        permanent: false
+      }
     ];
   },
 };
