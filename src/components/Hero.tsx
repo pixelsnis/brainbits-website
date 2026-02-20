@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AnimatedSquig1, AnimatedSquig2 } from "./AnimatedSquigs";
 
 export function Hero() {
   return (
@@ -29,19 +30,13 @@ export function Hero() {
             <span className="relative inline-block">
               you.
               <span className="absolute -left-[7.5%] top-full -mt-[5px] w-[115%] pointer-events-none">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/Squig 1.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="w-full"
-                />
+                <AnimatedSquig1 className="w-full" aria-hidden="true" />
               </span>
             </span>
           </p>
         </div>
         <a
-          href="#"
+          href="/download"
           className="w-full flex items-center justify-center h-[54px] bg-black text-white rounded-[36px] font-display font-medium text-[20px] leading-[1.2] tracking-[-0.5px]"
         >
           Get Brainbits for iOS
@@ -68,13 +63,7 @@ export function Hero() {
               <span className="relative inline-block">
                 you.
                 <span className="absolute -left-[7.5%] top-full -mt-[5px] w-[115%] pointer-events-none">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/Squig 1.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full"
-                  />
+                  <AnimatedSquig1 className="w-full" aria-hidden="true" />
                 </span>
               </span>
             </p>
@@ -98,20 +87,14 @@ export function Hero() {
               <span className="relative inline-block">
                 now
                 <span className="absolute -left-[5%] top-full -mt-[4px] w-[110%] pointer-events-none">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/Squig 2.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full"
-                  />
+                  <AnimatedSquig2 className="w-full" aria-hidden="true" />
                 </span>
               </span>
               , think later.
             </p>
           </div>
           <a
-            href="#"
+            href="/download"
             className="inline-flex items-center justify-center h-[54px] px-[24px] bg-black text-white rounded-[16px] font-display font-medium text-[20px] leading-[1.2] tracking-[-0.5px] hover:bg-neutral-800 transition-colors self-start"
           >
             Get Brainbits for iOS
@@ -138,13 +121,7 @@ export function Hero() {
               <span className="relative inline-block">
                 you.
                 <span className="absolute -left-[7.5%] top-full -mt-[5px] w-[115%] pointer-events-none">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/Squig 1.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full"
-                  />
+                  <AnimatedSquig1 className="w-full" aria-hidden="true" />
                 </span>
               </span>
             </p>
@@ -168,20 +145,14 @@ export function Hero() {
               <span className="relative inline-block">
                 now
                 <span className="absolute -left-[5%] top-full -mt-[4px] w-[110%] pointer-events-none">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/Squig 2.svg"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full"
-                  />
+                  <AnimatedSquig2 className="w-full" aria-hidden="true" />
                 </span>
               </span>
               , think later.
             </p>
           </div>
           <a
-            href="#"
+            href="/download"
             className="inline-flex items-center justify-center h-[54px] px-[24px] bg-black text-white rounded-[16px] font-display font-medium text-[20px] leading-[1.2] tracking-[-0.5px] hover:bg-neutral-800 transition-colors"
           >
             Get Brainbits for iOS

@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/download",
+        destination:
+          "https://apps.apple.com/in/app/brainbits-capture-recall/id6753618169",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
