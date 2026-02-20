@@ -2,6 +2,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — Brainbits",
+  description: "Privacy policy for Brainbits, your second brain for iOS.",
+};
 
 export default function PrivacyPage() {
   return (

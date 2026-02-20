@@ -5,8 +5,26 @@ import { FounderQuote } from "@/components/FounderQuote";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Brainbits",
+    operatingSystem: "iOS",
+    applicationCategory: "ProductivityApplication",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    url: "https://usebrainbits.com",
+  };
+
   return (
     <div className="bg-background p-[8px] flex flex-col gap-[8px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* ════════════════════════════════════════════════

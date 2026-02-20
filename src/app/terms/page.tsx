@@ -2,6 +2,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service — Brainbits",
+  description: "Terms of service and usage for Brainbits.",
+};
 
 export default function TermsPage() {
   return (

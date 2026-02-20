@@ -14,9 +14,25 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "Brainbits — Your second brain for iOS",
+  title: "Brainbits — The Notes App for Your Biggest Ideas",
   description:
-    "Brainbits is the note-taking app that works for you. Not too much, not too little. Note now, think later.",
+    "The notes app built for founders, solopreneurs, and side hustlers. Capture ideas instantly, find them later. Auto-organizing, offline-first, zero friction.",
+  openGraph: {
+    title: "Brainbits — The Notes App for Your Biggest Ideas",
+    description:
+      "The notes app built for founders, solopreneurs, and side hustlers. Capture ideas instantly, find them later. Auto-organizing, offline-first, zero friction.",
+    url: "https://usebrainbits.com",
+    siteName: "Brainbits",
+    images: ["https://usebrainbits.com/og/opengraph.jpg"],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brainbits — The Notes App for Your Biggest Ideas",
+    description:
+      "The notes app built for founders, solopreneurs, and side hustlers. Capture ideas instantly, find them later. Auto-organizing, offline-first, zero friction.",
+  },
 };
 
 export default function RootLayout({
