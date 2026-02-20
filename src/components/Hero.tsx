@@ -68,7 +68,7 @@ export function Hero() {
         </div>
 
         {/* Button container */}
-        <div className="w-full md:w-auto mt-auto md:mt-0 flex">
+        <div className="w-full md:w-auto mt-[16px] md:mt-0 flex">
           <a
             href="/download"
             className="flex items-center justify-center bg-black text-white transition-colors
