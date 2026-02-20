@@ -99,13 +99,13 @@ export default function PrivacyPage() {
             but they are not permitted to use it for any other purpose.
           </p>
           <p>
-            Your data is never sold to third parties, and we do not share it
-            with advertisers or marketers.
-          </p>
-          <p>
             The third-party services that we use for processing include Groq for
             transcriptions, Google GenAI and Cerebras for AI processing, and
             SiliconFlow for content embeddings.
+          </p>
+          <p>
+            Your data is never sold to third parties, and we do not share it
+            with advertisers or marketers.
           </p>
         </ContentSection>
 
