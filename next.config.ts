@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
           "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=Reddit&mt=8",
         permanent: false,
       },
+      {
+        source: "/discord",
+        destination:
+          "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=Discord&mt=8",
+        permanent: false,
+      },
     ];
   },
 };
