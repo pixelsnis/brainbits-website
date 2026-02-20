@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "The notes app built for founders, solopreneurs, and side hustlers. Capture ideas instantly, find them later. Auto-organizing, offline-first, zero friction.",
     url: "https://usebrainbits.com",
     siteName: "Brainbits",
-    images: ["https://usebrainbits.com/og/opengraph.jpg"],
+    images: ["https://usebrainbits.com/og/opengraph.webp"],
     locale: "en_US",
     type: "website",
   },
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     title: "Brainbits — The Notes App for Your Biggest Ideas",
     description:
       "The notes app built for founders, solopreneurs, and side hustlers. Capture ideas instantly, find them later. Auto-organizing, offline-first, zero friction.",
+    images: ["https://usebrainbits.com/og/opengraph.webp"],
   },
 };
 
