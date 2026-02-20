@@ -57,13 +57,17 @@ export function Footer() {
               Connect
             </p>
             <a
-              href="#"
+              href="https://threads.net/pixelsnis"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Threads
             </a>
             <a
-              href="#"
+              href="https://instagram.com/pixelsnis"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Instagram

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,13 +24,15 @@ export function Navbar() {
             : "border-transparent bg-white"
         }`}
       >
-        <Image
-          src="/images/Logo.svg"
-          alt="Brainbits logo"
-          width={31}
-          height={28}
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/images/Logo.svg"
+            alt="Brainbits logo"
+            width={31}
+            height={28}
+            priority
+          />
+        </Link>
       </div>
       <a
         href="/download"
