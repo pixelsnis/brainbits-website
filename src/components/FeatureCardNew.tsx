@@ -1,10 +1,12 @@
+import React from "react";
 import Image from "next/image";
 
 type FeatureCardNewProps = {
   pre: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   image: string;
+  className?: string;
 };
 
 export function FeatureCardNew({
@@ -12,9 +14,12 @@ export function FeatureCardNew({
   title,
   description,
   image,
+  className = "",
 }: FeatureCardNewProps) {
   return (
-    <div className="flex flex-col gap-0 items-stretch justify-start h-[600px] bg-white rounded-[64px] sm:rounded-[48px] overflow-hidden">
+    <div
+      className={`flex flex-col gap-0 items-stretch justify-start h-[600px] bg-white rounded-[64px] sm:rounded-[48px] overflow-hidden ${className}`}
+    >
       <div className="px-[36px] py-[36px] sm:px-[24px] flex flex-col gap-[10px] items-center text-center">
         <p className="font-sans font-semibold text-[12px] leading-normal tracking-[6px] text-[#aaa] uppercase">
           {pre}

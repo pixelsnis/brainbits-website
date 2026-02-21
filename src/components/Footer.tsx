@@ -57,6 +57,12 @@ export function Footer() {
               Connect
             </p>
             <a
+              href="/blog"
+              className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
+            >
+              Blog
+            </a>
+            <a
               href="https://threads.net/pixelsnis"
               target="_blank"
               rel="noopener noreferrer"

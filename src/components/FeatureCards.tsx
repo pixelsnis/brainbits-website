@@ -7,16 +7,28 @@ export function FeatureCards() {
       {/* MOBILE + TABLET cards (hidden on desktop) */}
       <div className="flex flex-col gap-[8px] md:flex-row lg:hidden">
         <FeatureCardNew
+          className="flex-1"
           pre="Notes"
-          title="Designed to be exceptionally simple."
+          title={
+            <>
+              Designed to be
+              <br className="hidden md:block lg:hidden" /> exceptionally simple.
+            </>
+          }
           description="No gimmicks. Offline-first. Built to feel invisible."
           image="/images/Notes Mockup.webp"
         />
 
         {/* Super Pages card */}
         <FeatureCardNew
+          className="flex-1"
           pre="Super Pages"
-          title="Your notes, in perfect structure."
+          title={
+            <>
+              Your notes, in
+              <br className="hidden md:block lg:hidden" /> perfect structure.
+            </>
+          }
           description="Add a note, and your docs update themselves. No organizing required."
           image="/images/Super Pages Mockup.webp"
         />
@@ -45,7 +57,7 @@ export function FeatureCards() {
               <p>Built to feel invisible.</p>
             </div>
           </div>
-          <div className="lg:absolute lg:right-[8%] lg:top-[12%] lg:w-[260px]">
+          <div className="lg:absolute lg:right-[8%] lg:top-[12%] w-[260px] lg:w-[clamp(260px,28vh,380px)]">
             <div
               className="relative w-full"
               style={{ aspectRatio: "270 / 587" }}
@@ -78,7 +90,7 @@ export function FeatureCards() {
               required.
             </p>
           </div>
-          <div className="lg:absolute lg:left-[8%] lg:top-[12%] lg:w-[260px]">
+          <div className="lg:absolute lg:left-[8%] lg:top-[12%] w-[260px] lg:w-[clamp(260px,28vh,380px)]">
             <div
               className="relative w-full"
               style={{ aspectRatio: "270 / 587" }}
