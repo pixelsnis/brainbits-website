@@ -20,9 +20,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const result = getPostBySlug(slug);
   if (!result) return {};
+
+  const url = `https://usebrainbits.com/blog/${slug}`;
+  const imageUrl = `https://usebrainbits.com${result.frontmatter.imageUrl}`;
+
   return {
     title: `${result.frontmatter.title} — Brainbits Blog`,
     description: result.frontmatter.description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${result.frontmatter.title} — Brainbits Blog`,
+      description: result.frontmatter.description,
+      url,
+      type: "article",
+      publishedTime: new Date(result.frontmatter.date).toISOString(),
+      authors: ["Aneesh Hegde"],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: result.frontmatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${result.frontmatter.title} — Brainbits Blog`,
+      description: result.frontmatter.description,
+      images: [imageUrl],
+      creator: "@pixelsnis",
+    },
   };
 }
 
@@ -121,8 +151,28 @@ export default async function BlogPostPage({ params }: Props) {
     year: "numeric",
   });
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    image: [`https://usebrainbits.com${frontmatter.imageUrl}`],
+    datePublished: new Date(frontmatter.date).toISOString(),
+    author: [
+      {
+        "@type": "Person",
+        name: "Aneesh Hegde",
+        url: "https://threads.net/pixelsnis",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="bg-white md:bg-background min-h-screen md:h-screen md:overflow-hidden flex flex-col md:p-[8px] md:gap-[8px]">
         {/* Desktop/Tablet Navigation */}
         <div className="hidden md:block shrink-0">
@@ -148,9 +198,14 @@ export default async function BlogPostPage({ params }: Props) {
                 {frontmatter.description}
               </p>
               <div className="flex gap-[8px] items-center">
-                <p className="font-sans font-medium text-[#aaa] text-[16px] leading-[1.3]">
+                <a
+                  href="https://threads.net/pixelsnis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans font-medium text-[#aaa] text-[16px] leading-[1.3] hover:text-[#222] transition-colors"
+                >
                   by Aneesh Hegde
-                </p>
+                </a>
                 <div className="w-[4px] h-[4px] rounded-full bg-[#aaa] shrink-0" />
                 {/* Note: I'll replace that image dot with a simple CSS dot to avoid the localhost asset issue */}
                 <p className="font-sans font-medium text-[#aaa] text-[16px] leading-[1.3]">

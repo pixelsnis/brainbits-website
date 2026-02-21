@@ -11,9 +11,9 @@ export function BlogHero() {
         px-[24px] py-[32px] lg:p-[42px]
         w-full lg:flex-[1.1] shrink-0"
     >
-      <p className="font-display font-medium leading-[1.3] text-[#aaa] text-[24px] lg:text-[32px] tracking-[-0.6px] lg:tracking-[-0.8px]">
+      <h1 className="font-display font-medium leading-[1.3] text-[#aaa] text-[24px] lg:text-[32px] tracking-[-0.6px] lg:tracking-[-0.8px]">
         Bits of the brain behind Brainbits
-      </p>
+      </h1>
 
       <p className="font-display font-medium leading-[1.3] text-black text-[24px] lg:text-[32px] tracking-[-0.6px] lg:tracking-[-0.8px]">
         Follow along as I build a notes app you'll actually enjoy using.
@@ -29,9 +29,14 @@ export function BlogHero() {
             alt="@pixelsnis avatar"
             className="w-[32px] h-[32px] lg:w-[42px] lg:h-[42px] rounded-full object-cover shrink-0"
           />
-          <span className="font-display font-medium leading-[1.3] text-black text-[24px] lg:text-[32px] tracking-[-0.6px] lg:tracking-[-0.8px]">
+          <a
+            href="https://threads.net/pixelsnis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-display font-medium leading-[1.3] text-[#222] text-[24px] lg:text-[32px] tracking-[-0.6px] lg:tracking-[-0.8px] hover:underline underline-offset-4"
+          >
             @pixelsnis
-          </span>
+          </a>
         </div>
       </div>
     </div>
