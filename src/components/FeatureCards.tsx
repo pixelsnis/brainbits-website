@@ -66,7 +66,7 @@ export function FeatureCards() {
                 src="/images/Notes Mockup.webp"
                 alt="Notes feature screenshot"
                 fill
-                className="object-fill object-top rounded-[22px]"
+                className="object-contain object-top rounded-[22px]"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ export function FeatureCards() {
                 src="/images/Super Pages Mockup.webp"
                 alt="Super Pages feature screenshot"
                 fill
-                className="object-fill object-top rounded-[22px]"
+                className="object-contain object-top rounded-[22px]"
               />
             </div>
           </div>
