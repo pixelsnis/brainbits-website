@@ -1,4 +1,7 @@
+"use client";
+
 import TextPressure from "./TextPressure";
+import { trackEvent } from "@/actions/tracking";
 
 export function Footer() {
   return (
@@ -35,18 +38,27 @@ export function Footer() {
             </p>
             <a
               href="/privacy"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "privacy" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Privacy
             </a>
             <a
               href="/terms"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "terms" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Terms of Use
             </a>
             <a
               href="mailto:aneesh@usebrainbits.com"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "contact" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Contact
@@ -58,6 +70,9 @@ export function Footer() {
             </p>
             <a
               href="/blog"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "blog" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Blog
@@ -66,6 +81,9 @@ export function Footer() {
               href="https://threads.net/pixelsnis"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "threads" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Threads
@@ -74,6 +92,9 @@ export function Footer() {
               href="https://instagram.com/pixelsnis"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("footer_link_clicked", { link_name: "instagram" })
+              }
               className="font-display font-medium text-[16px] leading-[1.2] text-white hover:text-neutral-300 transition-colors"
             >
               Instagram

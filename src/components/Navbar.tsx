@@ -3,15 +3,30 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/actions/tracking";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState(
+    "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=website&mt=8",
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") || params.get("utm_source");
+    if (campaign) {
+      setDownloadUrl(
+        `https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=${encodeURIComponent(
+          campaign,
+        )}&mt=8`,
+      );
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -24,7 +39,7 @@ export function Navbar() {
             : "border-transparent bg-white"
         }`}
       >
-        <Link href="/">
+        <Link href="/" onClick={() => trackEvent("navbar_logo_clicked")}>
           <Image
             src="/images/Logo.svg"
             alt="Brainbits logo"
@@ -35,7 +50,8 @@ export function Navbar() {
         </Link>
       </div>
       <a
-        href="/download"
+        href={downloadUrl}
+        onClick={() => trackEvent("navbar_download_clicked")}
         className="bg-black text-white h-full flex items-center justify-center px-[24px] rounded-full shrink-0 font-display font-medium text-[20px] leading-[1.2] tracking-[-0.5px] hover:bg-neutral-800 transition-colors"
       >
         Download

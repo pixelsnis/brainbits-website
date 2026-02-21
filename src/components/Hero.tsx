@@ -1,7 +1,26 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { AnimatedSquig1, AnimatedSquig2 } from "./AnimatedSquigs";
+import { trackEvent } from "@/actions/tracking";
 
 export function Hero() {
+  const [downloadUrl, setDownloadUrl] = useState(
+    "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=website&mt=8",
+  );
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get("utm_campaign") || params.get("utm_source");
+    if (campaign) {
+      setDownloadUrl(
+        `https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=${encodeURIComponent(
+          campaign,
+        )}&mt=8`,
+      );
+    }
+  }, []);
   return (
     <div
       className="bg-white overflow-hidden
@@ -70,7 +89,8 @@ export function Hero() {
         {/* Button container */}
         <div className="w-full md:w-auto mt-[16px] md:mt-0 flex">
           <a
-            href="/download"
+            href={downloadUrl}
+            onClick={() => trackEvent("hero_download_clicked")}
             className="flex items-center justify-center bg-black text-white transition-colors
             font-display font-medium text-[20px] leading-[1.2] tracking-[-0.5px]
             h-[54px] w-full md:w-auto md:inline-flex md:px-[24px]
