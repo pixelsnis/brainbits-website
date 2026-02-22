@@ -1,7 +1,19 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export function BrainbitsPlug() {
+  const [href, setHref] = useState("https://usebrainbits.com");
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search) {
+      setHref(`https://usebrainbits.com${window.location.search}`);
+    }
+  }, []);
+
   return (
     <a
-      href="https://usebrainbits.com"
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="group flex flex-col items-center gap-[16px] bg-white border-[0.5px] border-black/10 hover:border-black/20 hover:shadow-sm transition-all rounded-[40px] p-[32px] sm:p-[40px] my-[40px] no-underline w-full"

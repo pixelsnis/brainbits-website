@@ -1,11 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function MobileBlogNav() {
+  const [homeUrl, setHomeUrl] = useState("/");
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search) {
+      setHomeUrl(`/${window.location.search}`);
+    }
+  }, []);
+
   return (
     <div className="flex md:hidden items-center justify-between p-[16px] w-full bg-white z-50 sticky top-0">
       <Link
-        href="/"
+        href={homeUrl}
         className="flex items-center justify-center transition-opacity hover:opacity-80 shrink-0"
         aria-label="Home"
       >

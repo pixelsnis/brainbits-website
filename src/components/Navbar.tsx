@@ -10,6 +10,7 @@ export function Navbar() {
   const [downloadUrl, setDownloadUrl] = useState(
     "https://apps.apple.com/app/apple-store/id6753618169?pt=124081099&ct=website&mt=8",
   );
+  const [homeUrl, setHomeUrl] = useState("/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,10 @@ export function Navbar() {
       );
     }
 
+    if (window.location.search) {
+      setHomeUrl(`/${window.location.search}`);
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -39,7 +44,7 @@ export function Navbar() {
             : "border-transparent bg-white"
         }`}
       >
-        <Link href="/" onClick={() => trackEvent("navbar_logo_clicked")}>
+        <Link href={homeUrl} onClick={() => trackEvent("navbar_logo_clicked")}>
           <Image
             src="/images/Logo.svg"
             alt="Brainbits logo"

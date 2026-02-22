@@ -2,8 +2,25 @@
 
 import TextPressure from "./TextPressure";
 import { trackEvent } from "@/actions/tracking";
+import { useState, useEffect } from "react";
 
 export function Footer() {
+  const [links, setLinks] = useState({
+    privacy: "/privacy",
+    terms: "/terms",
+    blog: "/blog",
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search) {
+      setLinks({
+        privacy: `/privacy${window.location.search}`,
+        terms: `/terms${window.location.search}`,
+        blog: `/blog${window.location.search}`,
+      });
+    }
+  }, []);
+
   return (
     <footer className="bg-black rounded-[48px] md:rounded-[64px] overflow-hidden flex flex-col justify-end p-[36px] md:px-[36px] md:py-[36px] h-[560px]">
       {/* Mobile footer shows "Brainbits", tablet+ shows full text */}
@@ -37,7 +54,7 @@ export function Footer() {
               Links
             </p>
             <a
-              href="/privacy"
+              href={links.privacy}
               onClick={() =>
                 trackEvent("footer_link_clicked", { link_name: "privacy" })
               }
@@ -46,7 +63,7 @@ export function Footer() {
               Privacy
             </a>
             <a
-              href="/terms"
+              href={links.terms}
               onClick={() =>
                 trackEvent("footer_link_clicked", { link_name: "terms" })
               }
@@ -69,7 +86,7 @@ export function Footer() {
               Connect
             </p>
             <a
-              href="/blog"
+              href={links.blog}
               onClick={() =>
                 trackEvent("footer_link_clicked", { link_name: "blog" })
               }
