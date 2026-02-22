@@ -93,14 +93,33 @@ const mdxComponents = {
       {children}
     </h3>
   ),
-  p: ({ children, ...props }: any) => (
-    <p
-      className="font-sans font-normal text-[#222] text-[16px] leading-[1.5] mb-[16px]"
-      {...props}
-    >
-      {children}
-    </p>
-  ),
+  p: ({ children, ...props }: any) => {
+    // If any child is a React element (e.g. BrainbitsPlug renders a <div>),
+    // render a <div> instead of <p> to avoid invalid DOM nesting.
+    const hasBlockChild = Array.isArray(children)
+      ? children.some((child: any) => child && typeof child === "object")
+      : children && typeof children === "object";
+
+    if (hasBlockChild) {
+      return (
+        <div
+          className="font-sans font-normal text-[#222] text-[16px] leading-[1.5] mb-[16px]"
+          {...props}
+        >
+          {children}
+        </div>
+      );
+    }
+
+    return (
+      <p
+        className="font-sans font-normal text-[#222] text-[16px] leading-[1.5] mb-[16px]"
+        {...props}
+      >
+        {children}
+      </p>
+    );
+  },
   a: ({ children, href, ...props }: any) => (
     <a
       href={href}

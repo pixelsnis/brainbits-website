@@ -16,7 +16,7 @@ export function BrainbitsPlug() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col items-center gap-[16px] bg-white border-[0.5px] border-black/10 hover:border-black/20 hover:shadow-sm transition-all rounded-[40px] p-[32px] sm:p-[40px] my-[40px] no-underline w-full"
+      className="group flex flex-col items-center gap-[16px] bg-white border-[0.5px] border-black/10 hover:border-black/20 transition-all rounded-[40px] p-[32px] sm:p-[40px] my-[40px] no-underline w-full"
     >
       {/* Logo */}
       <img
