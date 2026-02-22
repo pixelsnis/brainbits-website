@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import SmoothScrolling from "@/components/SmoothScrolling";
@@ -13,6 +13,10 @@ const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#f0f0f0",
+};
 
 export const metadata: Metadata = {
   title: "Brainbits — The Notes App for Your Biggest Ideas",

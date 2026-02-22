@@ -1,8 +1,10 @@
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypePrettyCode from "rehype-pretty-code";
 import { Navbar } from "@/components/Navbar";
 import { MobileBlogNav } from "@/components/blog/MobileBlogNav";
 import { Footer } from "@/components/Footer";
+import { BrainbitsPlug } from "@/components/blog/BrainbitsPlug";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -23,15 +25,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = `https://usebrainbits.com/blog/${slug}`;
   const imageUrl = `https://usebrainbits.com${result.frontmatter.imageUrl}`;
+  const pageTitle =
+    result.frontmatter.title.length > 50
+      ? result.frontmatter.title
+      : `${result.frontmatter.title} — Brainbits Blog`;
 
   return {
-    title: `${result.frontmatter.title} — Brainbits Blog`,
+    title: pageTitle,
     description: result.frontmatter.description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${result.frontmatter.title} — Brainbits Blog`,
+      title: pageTitle,
       description: result.frontmatter.description,
       url,
       type: "article",
@@ -48,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${result.frontmatter.title} — Brainbits Blog`,
+      title: pageTitle,
       description: result.frontmatter.description,
       images: [imageUrl],
       creator: "@pixelsnis",
@@ -136,6 +142,31 @@ const mdxComponents = {
       {children}
     </blockquote>
   ),
+  pre: ({ children, ...props }: any) => (
+    <pre
+      className="overflow-x-auto my-[24px] p-[16px] md:p-[20px] rounded-[16px] md:rounded-[24px] text-[13px] md:text-[14px] leading-[1.6]"
+      {...props}
+    >
+      {children}
+    </pre>
+  ),
+  code: ({ children, ...props }: any) => {
+    // If there is no data-language or data-theme, it's likely an inline markdown code snippet natively.
+    const isInline = !props["data-language"] && !props["data-theme"];
+    return (
+      <code
+        className={`${
+          isInline
+            ? "bg-[#f4f4f5] text-[#e11d48] px-[6px] py-[2px] rounded-[6px]"
+            : ""
+        } font-mono`}
+        {...props}
+      >
+        {children}
+      </code>
+    );
+  },
+  BrainbitsPlug,
 };
 
 export default async function BlogPostPage({ params }: Props) {
@@ -154,17 +185,28 @@ export default async function BlogPostPage({ params }: Props) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://usebrainbits.com/blog/${slug}`,
+    },
     headline: frontmatter.title,
     description: frontmatter.description,
     image: [`https://usebrainbits.com${frontmatter.imageUrl}`],
     datePublished: new Date(frontmatter.date).toISOString(),
-    author: [
-      {
-        "@type": "Person",
-        name: "Aneesh Hegde",
-        url: "https://threads.net/pixelsnis",
+    dateModified: new Date(frontmatter.date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Aneesh Hegde",
+      url: "https://threads.net/pixelsnis",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Brainbits",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://usebrainbits.com/images/Brainbits.webp",
       },
-    ],
+    },
   };
 
   return (
@@ -173,9 +215,9 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <div className="bg-white md:bg-background min-h-screen md:h-screen md:overflow-hidden flex flex-col md:p-[8px] md:gap-[8px]">
+      <div className="bg-white md:bg-background min-h-screen flex flex-col md:p-[8px] md:gap-[8px]">
         {/* Desktop/Tablet Navigation */}
-        <div className="hidden md:block shrink-0">
+        <div className="hidden md:block shrink-0 sticky top-[8px] z-50">
           <Navbar />
         </div>
 
@@ -183,7 +225,7 @@ export default async function BlogPostPage({ params }: Props) {
         <MobileBlogNav />
 
         {/* Content Wrapper */}
-        <div className="bg-white flex flex-col items-center flex-1 w-full md:overflow-y-auto md:rounded-[48px] lg:rounded-[64px] md:p-[24px] lg:p-[42px]">
+        <div className="bg-white flex flex-col items-center flex-1 w-full md:rounded-[48px] lg:rounded-[64px] md:p-[24px] lg:p-[42px]">
           {/* Article Container max-width 720px */}
           <article className="flex flex-col gap-[24px] w-full max-w-[720px] pt-[24px]">
             {/* Header Info */}
@@ -227,9 +269,19 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* MDX Body */}
-            <div className="px-[16px] md:px-0 w-full">
+            <div className="px-[16px] md:px-0 w-full mb-[64px] md:mb-0">
               <div className="prose prose-neutral max-w-none font-sans text-black text-[16px] font-normal leading-[1.3]">
-                <MDXRemote source={content} components={mdxComponents} />
+                <MDXRemote
+                  source={content}
+                  components={mdxComponents}
+                  options={{
+                    mdxOptions: {
+                      rehypePlugins: [
+                        [rehypePrettyCode, { theme: "catppuccin-mocha" }],
+                      ],
+                    },
+                  }}
+                />
               </div>
             </div>
           </article>
