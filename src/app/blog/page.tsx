@@ -8,7 +8,7 @@ export const metadata = {
   title: "Blog — Brainbits",
   description: "Bits of the brain behind Brainbits",
   alternates: {
-    canonical: "https://usebrainbits.com/blog",
+    canonical: "https://www.usebrainbits.com/blog",
   },
 };
 

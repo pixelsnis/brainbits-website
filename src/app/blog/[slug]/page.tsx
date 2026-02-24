@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = getPostBySlug(slug);
   if (!result) return {};
 
-  const url = `https://usebrainbits.com/blog/${slug}`;
-  const imageUrl = `https://usebrainbits.com${result.frontmatter.imageUrl}`;
+  const url = `https://www.usebrainbits.com/blog/${slug}`;
+  const imageUrl = `https://www.usebrainbits.com${result.frontmatter.imageUrl}`;
   const pageTitle =
     result.frontmatter.title.length > 50
       ? result.frontmatter.title
@@ -206,11 +206,11 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://usebrainbits.com/blog/${slug}`,
+      "@id": `https://www.usebrainbits.com/blog/${slug}`,
     },
     headline: frontmatter.title,
     description: frontmatter.description,
-    image: [`https://usebrainbits.com${frontmatter.imageUrl}`],
+    image: [`https://www.usebrainbits.com${frontmatter.imageUrl}`],
     datePublished: new Date(frontmatter.date).toISOString(),
     dateModified: new Date(frontmatter.date).toISOString(),
     author: {
@@ -223,7 +223,7 @@ export default async function BlogPostPage({ params }: Props) {
       name: "Brainbits",
       logo: {
         "@type": "ImageObject",
-        url: "https://usebrainbits.com/images/Brainbits.webp",
+        url: "https://www.usebrainbits.com/images/Brainbits.webp",
       },
     },
   };

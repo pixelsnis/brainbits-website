@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://usebrainbits.com/sitemap.xml",
+    sitemap: "https://www.usebrainbits.com/sitemap.xml",
   };
 }
