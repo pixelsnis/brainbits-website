@@ -39,7 +39,7 @@ export function FeatureCardNew({
         alt="Feature screenshot"
         width={500}
         height={500}
-        className="w-full h-full object-contain"
+        className="w-full h-[370px] object-cover object-top mt-auto"
       />
     </div>
   );
