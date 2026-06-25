@@ -1,23 +1,5 @@
+import CTA from "@/components/CTA";
 import Image from "next/image";
-
-function DownloadButton() {
-  return (
-    <a
-      href="#"
-      className="relative flex items-center justify-center rounded-full px-6 py-2.5"
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-black from-50% to-[#666] to-[127.27%]"
-      />
-      <span className="text-button relative text-white">Download Brainbits</span>
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_-2px_4px_0px_rgba(255,255,255,0.25),inset_2px_1px_4px_0px_rgba(255,255,255,0.25)]"
-      />
-    </a>
-  );
-}
 
 export default function DownloadSection() {
   return (
@@ -47,14 +29,8 @@ export default function DownloadSection() {
             This Bottle.
           </h2>
         </div>
-        <div
-          className="invisible flex flex-col items-center gap-3 px-4"
-          aria-hidden
-        >
-          <DownloadButton />
-          <p className="text-caption text-center text-[#aaa]">
-            iOS 26.0 and above. For iPhone only.
-          </p>
+        <div className="invisible px-4" aria-hidden>
+          <CTA label="Download Brainbits" />
         </div>
       </div>
 
@@ -74,11 +50,8 @@ export default function DownloadSection() {
         </h2>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-3 px-4">
-        <DownloadButton />
-        <p className="text-caption text-center text-[#aaa]">
-          iOS 26.0 and above. For iPhone only.
-        </p>
+      <div className="relative z-10 px-4">
+        <CTA label="Download Brainbits" />
       </div>
     </section>
   );
