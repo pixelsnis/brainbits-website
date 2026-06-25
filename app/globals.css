@@ -9,7 +9,28 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
+
+  --text-body: 0.8125rem;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: -0.025em;
+
+  --text-label: 1rem;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0;
+
+  --text-nav: 0.8125rem;
+  --text-nav--line-height: 1.5;
+  --text-nav--letter-spacing: 0;
+
+  --text-caption: 0.6875rem;
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0;
+
+  --text-button: 1rem;
+  --text-button--line-height: 1.5;
+  --text-button--letter-spacing: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +40,111 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  @media (min-width: 48rem) {
+    h1 {
+      font-size: 4rem;
+    }
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+}
+
+@utility text-h2-cta {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+
+  @media (min-width: 48rem) {
+    font-size: 3.375rem;
+  }
+}
+
+@utility text-display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: -0.1em;
+
+  @media (min-width: 48rem) {
+    font-weight: 400;
+    font-size: 7.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    font-size: 13.125rem;
+  }
+}
+
+@utility text-body-lg {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+
+  @media (min-width: 48rem) {
+    font-size: 1rem;
+  }
+}
+
+@utility text-body {
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  letter-spacing: var(--text-body--letter-spacing);
+}
+
+@utility text-label {
+  font-weight: 500;
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+}
+
+@utility text-nav {
+  font-size: var(--text-nav);
+  line-height: var(--text-nav--line-height);
+  letter-spacing: var(--text-nav--letter-spacing);
+}
+
+@utility text-caption {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  letter-spacing: var(--text-caption--letter-spacing);
+}
+
+@utility text-button {
+  font-size: var(--text-button);
+  line-height: var(--text-button--line-height);
+  letter-spacing: var(--text-button--letter-spacing);
 }
