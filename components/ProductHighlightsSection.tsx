@@ -15,6 +15,7 @@ export default function ProductHighlightsSection() {
   return (
     <section className="w-full max-w-full">
       <div
+        data-lenis-prevent-horizontal
         className={[
           "overflow-x-auto",
           "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
