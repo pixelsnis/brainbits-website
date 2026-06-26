@@ -1,5 +1,9 @@
+"use client";
+
 import CTA from "@/components/CTA";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function DownloadSection() {
   return (
@@ -47,25 +51,42 @@ export default function DownloadSection() {
         />
       </div>
 
-      <div className="relative z-10 flex w-full flex-col items-center gap-4 px-4">
-        <Image
-          src="/images/App Icon.webp"
-          alt="Brainbits app icon"
-          width={100}
-          height={100}
-          className="size-[100px] object-cover"
-          priority
-        />
-        <h2 className="text-h2-cta text-center text-black">
+      <motion.div
+        variants={staggerContainer(0.18)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-10 flex w-full flex-col items-center gap-4 px-4"
+      >
+        <motion.div variants={fadeUp}>
+          <Image
+            src="/images/App Icon.webp"
+            alt="Brainbits app icon"
+            width={100}
+            height={100}
+            className="size-[100px] object-cover"
+            priority
+          />
+        </motion.div>
+        <motion.h2
+          variants={fadeUp}
+          className="text-h2-cta text-center text-black"
+        >
           Catch Your Lighting in
           <br />
           This Bottle.
-        </h2>
-      </div>
+        </motion.h2>
+      </motion.div>
 
-      <div className="relative z-10 px-4">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-10 px-4"
+      >
         <CTA label="Download Brainbits" />
-      </div>
+      </motion.div>
     </section>
   );
 }

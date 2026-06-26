@@ -1,3 +1,7 @@
+"use client";
+
+import { EASE } from "@/lib/motion";
+import { motion } from "motion/react";
 import { APP_STORE_URL } from "@/lib/links";
 
 type CTAProps = {
@@ -19,8 +23,10 @@ export default function CTA({
         .filter(Boolean)
         .join(" ")}
     >
-      <a
+      <motion.a
         href={href}
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.25, ease: EASE }}
         className="group relative flex items-center justify-center rounded-full px-6 py-2.5"
         target="_blank"
         rel="noopener noreferrer"
@@ -40,7 +46,7 @@ export default function CTA({
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_-2px_4px_0px_rgba(255,255,255,0.25),inset_2px_1px_4px_0px_rgba(255,255,255,0.25)]"
         />
-      </a>
+      </motion.a>
       <p className="text-caption text-center text-[#aaa]">{finePrint}</p>
     </div>
   );

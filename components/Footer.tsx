@@ -1,5 +1,9 @@
+"use client";
+
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import {
   APP_STORE_URL,
   CONTACT_EMAIL,
@@ -109,27 +113,47 @@ export default function Footer() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col gap-6 md:gap-8">
-        <div className="flex flex-col gap-6 md:hidden">
+      <motion.div
+        variants={staggerContainer(0.18)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-10 flex flex-col gap-6 md:gap-8"
+      >
+        <motion.div variants={fadeUp} className="md:hidden">
           <p className={WORDMARK_CLASS}>Brainbits</p>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="hidden md:block">
+          <p className={WORDMARK_CLASS}>Brainbits</p>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="md:hidden">
           <TaglineBlock />
-        </div>
+        </motion.div>
 
-        <p className={`${WORDMARK_CLASS} hidden md:block`}>Brainbits</p>
-
-        <nav aria-label="Footer">
-          <div className="grid w-full grid-cols-2 gap-4 md:flex md:gap-8 md:px-2">
-            <TaglineBlock className="hidden md:flex md:flex-1" />
+        <motion.nav
+          variants={staggerContainer(0)}
+          aria-label="Footer"
+          className="grid w-full grid-cols-2 gap-4 md:flex md:gap-8 md:px-2"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="hidden md:flex md:flex-1"
+          >
+            <TaglineBlock />
+          </motion.div>
+          <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
-              className="md:flex-1"
               title="Product"
               items={[
                 { label: "iOS App", href: APP_STORE_URL, external: true },
                 { label: "API", comingSoon: true },
               ]}
             />
+          </motion.div>
+          <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
-              className="md:flex-1"
               title="Links"
               items={[
                 { label: "Privacy", href: PRIVACY_URL },
@@ -137,17 +161,18 @@ export default function Footer() {
                 { label: "Contact", href: CONTACT_EMAIL },
               ]}
             />
+          </motion.div>
+          <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
-              className="md:flex-1"
               title="Connect"
               items={[
                 { label: "Threads", href: THREADS_URL, external: true },
                 { label: "Instagram", href: INSTAGRAM_URL, external: true },
               ]}
             />
-          </div>
-        </nav>
-      </div>
+          </motion.div>
+        </motion.nav>
+      </motion.div>
     </footer>
   );
 }

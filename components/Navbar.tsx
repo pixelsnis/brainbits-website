@@ -1,10 +1,19 @@
+"use client";
+
+import { EASE } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { APP_STORE_URL } from "@/lib/links";
 
 export default function Navbar() {
   return (
-    <header className="relative z-20 w-full shrink-0 p-6">
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+      className="relative z-20 w-full shrink-0 p-6"
+    >
       <nav
         aria-label="Main"
         className="flex w-full items-start justify-between"
@@ -20,20 +29,30 @@ export default function Navbar() {
           />
         </Link>
         <div className="flex items-center gap-8 text-nav text-black">
-          <Link href="#features" className="hover:opacity-80">
-            Features
-          </Link>
-          <span className="text-[rgba(47,40,34,0.5)]">API</span>
-          <a
-            href={APP_STORE_URL}
-            className="font-medium hover:opacity-80"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
           >
-            Download
-          </a>
+            <Link href="#features" className="hover:opacity-80">
+              Features
+            </Link>
+          </motion.span>
+          <span className="text-[rgba(47,40,34,0.5)]">API</span>
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <a
+              href={APP_STORE_URL}
+              className="font-medium hover:opacity-80"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download
+            </a>
+          </motion.span>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
