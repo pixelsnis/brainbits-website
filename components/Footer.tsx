@@ -1,13 +1,26 @@
 import Image from "next/image";
+import Link from "next/link";
+import {
+  APP_STORE_URL,
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  PRIVACY_URL,
+  TERMS_URL,
+  THREADS_URL,
+} from "@/lib/links";
 
 const WORDMARK_CLASS =
-  "font-serif italic leading-none tracking-[-6.4px] text-[#2f2822] text-[64px] md:tracking-[-12px] md:text-[120px] lg:tracking-[-21px] lg:text-[210px]";
+  "font-serif italic leading-none tracking-[-7.2px] text-[#2f2822] text-[72px] md:tracking-[-15px] md:text-[150px] lg:tracking-[-26px] lg:text-[260px]";
 
 type LinkItem =
-  | string
   | {
       label: string;
-      comingSoon?: boolean;
+      href: string;
+      external?: boolean;
+    }
+  | {
+      label: string;
+      comingSoon: true;
     };
 
 function TaglineBlock({ className }: { className?: string }) {
@@ -34,39 +47,35 @@ function LinkColumn({
     <div className={`flex flex-col gap-3 ${className ?? ""}`}>
       <p className="text-label font-medium text-[rgba(47,40,34,0.5)]">{title}</p>
       {items.map((item) => {
-        if (typeof item === "string") {
+        if ("comingSoon" in item) {
           return (
-            <a
-              key={item}
-              href="#"
-              className="text-label font-medium text-[#2f2822] hover:opacity-80"
-            >
-              {item}
-            </a>
+            <p key={item.label} className="text-label font-medium text-[#2f2822]">
+              {item.label}{" "}
+              <span className="text-[rgba(47,40,34,0.5)]">Coming Soon</span>
+            </p>
           );
         }
 
-        if (item.comingSoon) {
+        const linkClassName = "text-label font-medium text-[#2f2822] hover:opacity-80";
+
+        if (item.external) {
           return (
             <a
               key={item.label}
-              href="#"
-              className="text-label font-medium text-[#2f2822] hover:opacity-80"
+              href={item.href}
+              className={linkClassName}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {item.label}{" "}
-              <span className="text-[rgba(47,40,34,0.5)]">Coming Soon</span>
+              {item.label}
             </a>
           );
         }
 
         return (
-          <a
-            key={item.label}
-            href="#"
-            className="text-label font-medium text-[#2f2822] hover:opacity-80"
-          >
+          <Link key={item.label} href={item.href} className={linkClassName}>
             {item.label}
-          </a>
+          </Link>
         );
       })}
     </div>
@@ -75,7 +84,7 @@ function LinkColumn({
 
 export default function Footer() {
   return (
-    <footer className="relative flex min-h-[740px] w-full flex-col justify-end gap-6 overflow-hidden bg-[#f4f4f2] px-4 pt-4 pb-16 md:min-h-[900px] md:gap-8 md:p-8 lg:min-h-[740px]">
+    <footer className="relative flex min-h-[740px] w-full max-w-full flex-col justify-end gap-6 overflow-hidden bg-[#f4f4f2] px-4 pt-4 pb-16 md:min-h-[900px] md:gap-8 md:p-8 lg:min-h-[740px]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <Image
           src="/images/footer/mobile.webp"
@@ -83,7 +92,6 @@ export default function Footer() {
           fill
           className="object-cover object-top md:hidden"
           sizes="100vw"
-          priority
         />
         <Image
           src="/images/footer/tablet.webp"
@@ -115,17 +123,27 @@ export default function Footer() {
             <LinkColumn
               className="md:flex-1"
               title="Product"
-              items={["iOS App", { label: "API", comingSoon: true }]}
+              items={[
+                { label: "iOS App", href: APP_STORE_URL, external: true },
+                { label: "API", comingSoon: true },
+              ]}
             />
             <LinkColumn
               className="md:flex-1"
               title="Links"
-              items={["Privacy", "Terms of Use", "Contact"]}
+              items={[
+                { label: "Privacy", href: PRIVACY_URL },
+                { label: "Terms of Use", href: TERMS_URL },
+                { label: "Contact", href: CONTACT_EMAIL },
+              ]}
             />
             <LinkColumn
               className="md:flex-1"
               title="Connect"
-              items={["Blog", "Threads", "Instagram"]}
+              items={[
+                { label: "Threads", href: THREADS_URL, external: true },
+                { label: "Instagram", href: INSTAGRAM_URL, external: true },
+              ]}
             />
           </div>
         </nav>

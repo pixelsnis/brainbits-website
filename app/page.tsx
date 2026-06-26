@@ -7,12 +7,14 @@ import ProductHighlightsSection from "@/components/ProductHighlightsSection";
 export default function Home() {
   return (
     <>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         <Hero />
+        <div className="flex flex-col gap-16">
+          <ProductHighlightsSection />
+          <FeaturesSection />
+        </div>
+        <DownloadSection />
       </main>
-      <ProductHighlightsSection />
-      <FeaturesSection />
-      <DownloadSection />
       <Footer />
     </>
   );

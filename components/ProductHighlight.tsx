@@ -10,7 +10,8 @@ function ProductHighlight({ className, children }: ProductHighlightProps) {
   return (
     <article
       className={[
-        "flex w-full min-w-[270px] max-w-[340px] flex-1 flex-col items-start bg-white",
+        "flex w-[270px] shrink-0 flex-col items-start bg-white",
+        "lg:min-w-[270px] lg:max-w-[340px] lg:flex-1 lg:shrink",
         className,
       ]
         .filter(Boolean)
@@ -106,8 +107,15 @@ function ProductHighlightDescription({
   );
 }
 
-function ProductHighlightDivider() {
-  return <div aria-hidden className="w-px shrink-0 self-stretch bg-[#eee]" />;
+function ProductHighlightDivider({ className }: { className?: string }) {
+  return (
+    <div
+      aria-hidden
+      className={["w-px shrink-0 self-stretch bg-[#eee]", className]
+        .filter(Boolean)
+        .join(" ")}
+    />
+  );
 }
 
 ProductHighlight.displayName = "ProductHighlight";

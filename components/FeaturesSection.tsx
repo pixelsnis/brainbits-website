@@ -8,10 +8,16 @@ import {
 
 export default function FeaturesSection() {
   return (
-    <section className="flex w-full justify-center md:px-8">
+    <section
+      id="features"
+      className="flex w-full max-w-full justify-center px-0 md:px-8"
+    >
       <div className="flex w-full max-w-[840px] flex-col gap-16 md:gap-4">
         <FeatureCard layout="hl">
-          <FeatureCardThumbnail src="" />
+          <FeatureCardThumbnail
+            src="/images/cards/Capture%20Note.webp"
+            alt="Brainbits quick capture note screen"
+          />
           <FeatureCardBody>
             <FeatureCardTitle>
               Capture thoughts
@@ -26,7 +32,10 @@ export default function FeaturesSection() {
         </FeatureCard>
 
         <FeatureCard layout="hr">
-          <FeatureCardThumbnail src="" />
+          <FeatureCardThumbnail
+            src="/images/cards/New%20Page.webp"
+            alt="Brainbits topic page with organized notes"
+          />
           <FeatureCardBody>
             <FeatureCardTitle>
               Read your notes,
@@ -42,7 +51,10 @@ export default function FeaturesSection() {
         </FeatureCard>
 
         <FeatureCard layout="hl">
-          <FeatureCardThumbnail src="" />
+          <FeatureCardThumbnail
+            src="/images/cards/Chat.webp"
+            alt="Brainbits chat answering a question from your notes"
+          />
           <FeatureCardBody>
             <FeatureCardTitle>
               Get instant answers

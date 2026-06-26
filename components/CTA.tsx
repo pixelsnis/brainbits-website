@@ -1,3 +1,5 @@
+import { APP_STORE_URL } from "@/lib/links";
+
 type CTAProps = {
   href?: string;
   label?: string;
@@ -6,7 +8,7 @@ type CTAProps = {
 };
 
 export default function CTA({
-  href = "#",
+  href = APP_STORE_URL,
   label = "Get it on the App Store",
   finePrint = "iOS 26.0 and above. For iPhone only.",
   className,
@@ -20,6 +22,8 @@ export default function CTA({
       <a
         href={href}
         className="group relative flex items-center justify-center rounded-full px-6 py-2.5"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <span
           aria-hidden

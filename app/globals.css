@@ -12,9 +12,7 @@
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
 
-  --text-body: 0.8125rem;
-  --text-body--line-height: 1.5;
-  --text-body--letter-spacing: -0.025em;
+  --font-size-body-desktop: 0.8125rem;
 
   --text-label: 1rem;
   --text-label--line-height: 1.2;
@@ -109,19 +107,19 @@
 }
 
 @utility text-body-lg {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0;
-
-  @media (min-width: 48rem) {
-    font-size: 1rem;
-  }
 }
 
 @utility text-body {
-  font-size: var(--text-body);
-  line-height: var(--text-body--line-height);
-  letter-spacing: var(--text-body--letter-spacing);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+
+  @media (min-width: 48rem) {
+    font-size: var(--font-size-body-desktop);
+  }
 }
 
 @utility text-label {
