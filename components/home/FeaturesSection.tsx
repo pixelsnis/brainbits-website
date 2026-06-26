@@ -6,7 +6,7 @@ import {
   FeatureCardDescription,
   FeatureCardThumbnail,
   FeatureCardTitle,
-} from "@/components/FeatureCard";
+} from "@/components/home/FeatureCard";
 import { EASE, fadeUp } from "@/lib/motion";
 import { motion } from "motion/react";
 

@@ -4,7 +4,7 @@ import { EASE } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { APP_STORE_URL } from "@/lib/links";
+import { APP_STORE_URL } from "@/lib/constants/links";
 
 export default function Navbar() {
   return (

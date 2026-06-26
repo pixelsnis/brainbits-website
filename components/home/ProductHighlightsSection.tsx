@@ -7,7 +7,7 @@ import {
   ProductHighlightDivider,
   ProductHighlightIcon,
   ProductHighlightTitle,
-} from "@/components/ProductHighlight";
+} from "@/components/home/ProductHighlight";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
 import { motion } from "motion/react";
 

@@ -2,7 +2,7 @@
 
 import { EASE } from "@/lib/motion";
 import { motion } from "motion/react";
-import { APP_STORE_URL } from "@/lib/links";
+import { APP_STORE_URL } from "@/lib/constants/links";
 
 type CTAProps = {
   href?: string;

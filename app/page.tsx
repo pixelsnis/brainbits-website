@@ -1,9 +1,9 @@
-import DownloadSection from "@/components/DownloadSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import ProductHighlightsSection from "@/components/ProductHighlightsSection";
-import SmoothScroll from "@/components/SmoothScroll";
+import DownloadSection from "@/components/home/DownloadSection";
+import FeaturesSection from "@/components/home/FeaturesSection";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/home/Hero";
+import ProductHighlightsSection from "@/components/home/ProductHighlightsSection";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 
 export default function Home() {
   return (

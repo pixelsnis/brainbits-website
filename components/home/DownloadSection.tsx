@@ -1,6 +1,6 @@
 "use client";
 
-import CTA from "@/components/CTA";
+import CTA from "@/components/ui/CTA";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
 import { motion } from "motion/react";

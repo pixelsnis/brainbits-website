@@ -11,7 +11,7 @@ import {
   PRIVACY_URL,
   TERMS_URL,
   THREADS_URL,
-} from "@/lib/links";
+} from "@/lib/constants/links";
 
 const WORDMARK_CLASS =
   "font-serif italic leading-none tracking-[-7.2px] text-[#2f2822] text-[72px] md:tracking-[-15px] md:text-[150px] lg:tracking-[-26px] lg:text-[260px]";

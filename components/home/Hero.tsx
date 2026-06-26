@@ -1,7 +1,7 @@
 "use client";
 
-import CTA from "@/components/CTA";
-import Navbar from "@/components/Navbar";
+import CTA from "@/components/ui/CTA";
+import Navbar from "@/components/layout/Navbar";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
 import { motion } from "motion/react";
