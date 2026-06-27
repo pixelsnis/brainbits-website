@@ -2,7 +2,9 @@
 
 import { trackAppStoreClick, type AppStoreLocation } from "@/lib/analytics";
 import { APP_STORE_URL } from "@/lib/constants/links";
+import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
 import { EASE } from "@/lib/motion";
+import { isAppStoreUrl } from "@/lib/utm";
 import { motion } from "motion/react";
 
 type CTAProps = {
@@ -20,6 +22,9 @@ export default function CTA({
   className,
   location = "download_section",
 }: CTAProps) {
+  const appStoreUrl = useAppStoreUrl();
+  const resolvedHref = isAppStoreUrl(href) ? appStoreUrl : href;
+
   return (
     <div
       className={["flex flex-col items-center gap-3", className]
@@ -27,7 +32,7 @@ export default function CTA({
         .join(" ")}
     >
       <motion.a
-        href={href}
+        href={resolvedHref}
         whileTap={{ scale: 0.97 }}
         transition={{ duration: 0.25, ease: EASE }}
         className="group relative flex items-center justify-center rounded-full px-6 py-2.5"

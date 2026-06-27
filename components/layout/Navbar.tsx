@@ -1,13 +1,14 @@
 "use client";
 
 import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
+import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
 import { EASE } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { APP_STORE_URL } from "@/lib/constants/links";
 
 export default function Navbar() {
+  const appStoreUrl = useAppStoreUrl();
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -54,7 +55,7 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: EASE }}
           >
             <a
-              href={APP_STORE_URL}
+              href={appStoreUrl}
               className="font-medium hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"

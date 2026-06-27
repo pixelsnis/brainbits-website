@@ -1,10 +1,7 @@
 "use client";
 
 import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
-import { fadeUp, staggerContainer } from "@/lib/motion";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "motion/react";
+import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
 import {
   APP_STORE_URL,
   CONTACT_EMAIL,
@@ -13,6 +10,11 @@ import {
   TERMS_URL,
   THREADS_URL,
 } from "@/lib/constants/links";
+import { fadeUp, staggerContainer } from "@/lib/motion";
+import { isAppStoreUrl } from "@/lib/utm";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
 
 const WORDMARK_CLASS =
   "font-serif italic leading-none tracking-[-7.2px] text-[#2f2822] text-[72px] md:tracking-[-15px] md:text-[150px] lg:tracking-[-26px] lg:text-[260px]";
@@ -44,11 +46,13 @@ function LinkColumn({
   items,
   className,
   location,
+  appStoreUrl,
 }: {
   title: string;
   items: LinkItem[];
   className?: string;
   location: "footer";
+  appStoreUrl: string;
 }) {
   return (
     <div className={`flex flex-col gap-3 ${className ?? ""}`}>
@@ -66,12 +70,12 @@ function LinkColumn({
         const linkClassName = "text-label font-medium text-[#2f2822] hover:opacity-80";
 
         if (item.external) {
-          const isAppStore = item.href === APP_STORE_URL;
+          const isAppStore = isAppStoreUrl(item.href);
 
           return (
             <a
               key={item.label}
-              href={item.href}
+              href={isAppStore ? appStoreUrl : item.href}
               className={linkClassName}
               target="_blank"
               rel="noopener noreferrer"
@@ -114,6 +118,8 @@ function LinkColumn({
 }
 
 export default function Footer() {
+  const appStoreUrl = useAppStoreUrl();
+
   return (
     <footer className="relative flex min-h-[740px] w-full max-w-full flex-col justify-end gap-6 overflow-hidden bg-[#f4f4f2] px-4 pt-4 pb-16 md:min-h-[900px] md:gap-8 md:p-8 lg:min-h-[740px]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -174,6 +180,7 @@ export default function Footer() {
             <LinkColumn
               title="Product"
               location="footer"
+              appStoreUrl={appStoreUrl}
               items={[
                 { label: "iOS App", href: APP_STORE_URL, external: true },
                 { label: "API", comingSoon: true },
@@ -184,6 +191,7 @@ export default function Footer() {
             <LinkColumn
               title="Links"
               location="footer"
+              appStoreUrl={appStoreUrl}
               items={[
                 { label: "Privacy", href: PRIVACY_URL },
                 { label: "Terms of Use", href: TERMS_URL },
@@ -195,6 +203,7 @@ export default function Footer() {
             <LinkColumn
               title="Connect"
               location="footer"
+              appStoreUrl={appStoreUrl}
               items={[
                 { label: "Threads", href: THREADS_URL, external: true },
                 { label: "Instagram", href: INSTAGRAM_URL, external: true },

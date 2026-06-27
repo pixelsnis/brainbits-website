@@ -1,12 +1,20 @@
+import { getStoredUtmParams } from "@/lib/utm";
 import posthog from "posthog-js";
 
 export type AppStoreLocation = "hero" | "download_section" | "navbar" | "footer";
+
+function withUtmParams<T extends Record<string, unknown>>(properties: T) {
+  return { ...properties, ...getStoredUtmParams() };
+}
 
 export function trackAppStoreClick(
   location: AppStoreLocation,
   buttonText: string,
 ) {
-  posthog.capture("app_store_clicked", { location, button_text: buttonText });
+  posthog.capture(
+    "app_store_clicked",
+    withUtmParams({ location, button_text: buttonText }),
+  );
 }
 
 export function trackNavLinkClick(args: {
@@ -14,9 +22,12 @@ export function trackNavLinkClick(args: {
   location: "navbar" | "footer";
   target: "internal" | "external";
 }) {
-  posthog.capture("nav_link_clicked", args);
+  posthog.capture("nav_link_clicked", withUtmParams(args));
 }
 
 export function trackSectionView(sectionName: string) {
-  posthog.capture("section_viewed", { section_name: sectionName });
+  posthog.capture(
+    "section_viewed",
+    withUtmParams({ section_name: sectionName }),
+  );
 }
