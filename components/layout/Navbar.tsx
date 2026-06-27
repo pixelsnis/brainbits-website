@@ -1,5 +1,6 @@
 "use client";
 
+import ComingSoonLink from "@/components/ui/ComingSoonLink";
 import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
 import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
 import { EASE } from "@/lib/motion";
@@ -49,7 +50,12 @@ export default function Navbar() {
               Features
             </Link>
           </motion.span>
-          <span className="text-[rgba(47,40,34,0.5)]">API</span>
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <ComingSoonLink className="text-nav text-black">API</ComingSoonLink>
+          </motion.span>
           <motion.span
             whileHover={{ y: -1 }}
             transition={{ duration: 0.35, ease: EASE }}

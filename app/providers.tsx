@@ -1,5 +1,6 @@
 "use client";
 
+import { TooltipProvider } from "@/components/ui/tooltip";
 import UtmCapture from "@/components/analytics/UtmCapture";
 import { getStoredUtmParams } from "@/lib/utm";
 import { PostHogProvider as PHProvider } from "@posthog/react";
@@ -43,7 +44,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         <UtmCapture />
         <PageviewTracker />
       </Suspense>
-      {children}
+      <TooltipProvider>{children}</TooltipProvider>
     </PHProvider>
   );
 }

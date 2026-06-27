@@ -1,4 +1,5 @@
 import DownloadSection from "@/components/home/DownloadSection";
+import FAQ from "@/components/home/FAQ";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
@@ -14,7 +15,11 @@ export default function Home() {
           <ProductHighlightsSection />
           <FeaturesSection />
         </div>
+        <hr className="w-full border-0 border-t border-[#eee]" />
         <DownloadSection />
+        <hr className="w-full border-0 border-t border-[#eee]" />
+        <FAQ />
+        <hr className="w-full border-0 border-t border-[#eee]" />
       </main>
       <Footer />
     </SmoothScroll>

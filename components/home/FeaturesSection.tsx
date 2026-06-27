@@ -17,7 +17,7 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="relative flex w-full max-w-full justify-center px-0 md:px-8"
+      className="relative flex w-full max-w-full justify-center px-0 py-16 md:px-8 md:py-4"
     >
       <TrackSectionView name="features" />
       <div className="flex w-full max-w-[840px] flex-col gap-16 md:gap-4">
