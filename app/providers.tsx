@@ -30,6 +30,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       api_host: process.env.NEXT_PUBLIC_POSTHOG_REVERSE_PROXY,
       defaults: "2026-05-30",
       capture_pageview: false,
+      capture_dead_clicks: false,
       loaded: (ph) => {
         if (process.env.NODE_ENV === "development") ph.debug();
       },
