@@ -132,7 +132,7 @@ function FeatureCardTitle({ className, children, ...props }: FeatureCardTitlePro
   return (
     <h2
       className={[
-        "font-serif text-[32px] leading-none font-medium tracking-[-0.8px]",
+        "font-serif text-[32px] leading-none font-normal tracking-[-0.8px]",
         className,
       ]
         .filter(Boolean)

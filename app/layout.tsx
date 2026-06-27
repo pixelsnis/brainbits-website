@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400"],
   style: ["normal", "italic"],
 });
 
