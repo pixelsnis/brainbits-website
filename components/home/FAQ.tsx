@@ -7,29 +7,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FAQ_ITEMS, FAQ_LAST_UPDATED } from "@/lib/content/faq";
 import { fadeUp } from "@/lib/motion";
 import { motion } from "motion/react";
-
-const FAQ_ITEMS = [
-  {
-    question: "Placeholder question one?",
-    answer: "Placeholder answer for the first question.",
-  },
-  {
-    question: "Placeholder question two?",
-    answer: "Placeholder answer for the second question.",
-  },
-  {
-    question: "Placeholder question three?",
-    answer: "Placeholder answer for the third question.",
-  },
-] as const;
 
 export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative flex w-full max-w-full justify-center px-0 pt-8 pb-8 md:px-8"
+      className="relative flex w-full max-w-full justify-center px-4 pt-8 pb-8 md:px-8"
     >
       <TrackSectionView name="faq" />
       <motion.div
@@ -50,6 +36,7 @@ export default function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
+        <p className="text-body text-black/50">Last updated {FAQ_LAST_UPDATED}</p>
       </motion.div>
     </section>
   );

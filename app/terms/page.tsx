@@ -13,7 +13,17 @@ import {
 } from "@/components/legal/LegalDocument";
 import LegalPage from "@/components/legal/LegalPage";
 import { PRIVACY_URL } from "@/lib/constants/links";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Terms of Use",
+  description:
+    "Terms of Service for Brainbits, the intelligent notes app for iOS. Covers eligibility, user content, privacy, and acceptable use.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
 
 export default function TermsPage() {
   return (

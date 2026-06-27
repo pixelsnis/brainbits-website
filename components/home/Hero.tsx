@@ -60,12 +60,13 @@ export default function Hero() {
               className="text-body-lg text-black"
             >
               <p className="md:hidden">
-                Brainbits is a notes app for your biggest ideas and smallest
-                details. Designed to keep you moving, not organizing.
+                Brainbits is an AI-native notes app for iOS — built for your
+                biggest ideas and smallest details. Designed to keep you moving,
+                not organizing.
               </p>
               <p className="hidden md:block">
-                Brainbits is a notes app for your biggest ideas and smallest
-                details.
+                Brainbits is an AI-native notes app for iOS — built for your
+                biggest ideas and smallest details.
               </p>
               <p className="hidden md:block">
                 Designed to keep you moving, not organizing.

@@ -12,6 +12,16 @@ import {
   LegalDocumentUpdated,
 } from "@/components/legal/LegalDocument";
 import LegalPage from "@/components/legal/LegalPage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Brainbits handles your data, AI processing, and analytics. Your content is never used for marketing or sold to third parties.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (
