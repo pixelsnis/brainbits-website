@@ -1,5 +1,6 @@
 "use client";
 
+import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,10 +43,12 @@ function LinkColumn({
   title,
   items,
   className,
+  location,
 }: {
   title: string;
   items: LinkItem[];
   className?: string;
+  location: "footer";
 }) {
   return (
     <div className={`flex flex-col gap-3 ${className ?? ""}`}>
@@ -63,6 +66,8 @@ function LinkColumn({
         const linkClassName = "text-label font-medium text-[#2f2822] hover:opacity-80";
 
         if (item.external) {
+          const isAppStore = item.href === APP_STORE_URL;
+
           return (
             <a
               key={item.label}
@@ -70,6 +75,17 @@ function LinkColumn({
               className={linkClassName}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                if (isAppStore) {
+                  trackAppStoreClick("footer", item.label);
+                } else {
+                  trackNavLinkClick({
+                    linkText: item.label,
+                    location,
+                    target: "external",
+                  });
+                }
+              }}
             >
               {item.label}
             </a>
@@ -77,7 +93,18 @@ function LinkColumn({
         }
 
         return (
-          <Link key={item.label} href={item.href} className={linkClassName}>
+          <Link
+            key={item.label}
+            href={item.href}
+            className={linkClassName}
+            onClick={() =>
+              trackNavLinkClick({
+                linkText: item.label,
+                location,
+                target: "internal",
+              })
+            }
+          >
             {item.label}
           </Link>
         );
@@ -146,6 +173,7 @@ export default function Footer() {
           <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
               title="Product"
+              location="footer"
               items={[
                 { label: "iOS App", href: APP_STORE_URL, external: true },
                 { label: "API", comingSoon: true },
@@ -155,6 +183,7 @@ export default function Footer() {
           <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
               title="Links"
+              location="footer"
               items={[
                 { label: "Privacy", href: PRIVACY_URL },
                 { label: "Terms of Use", href: TERMS_URL },
@@ -165,6 +194,7 @@ export default function Footer() {
           <motion.div variants={fadeUp} className="md:flex-1">
             <LinkColumn
               title="Connect"
+              location="footer"
               items={[
                 { label: "Threads", href: THREADS_URL, external: true },
                 { label: "Instagram", href: INSTAGRAM_URL, external: true },

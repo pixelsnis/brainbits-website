@@ -1,5 +1,6 @@
 "use client";
 
+import TrackSectionView from "@/components/analytics/TrackSectionView";
 import CTA from "@/components/ui/CTA";
 import Navbar from "@/components/layout/Navbar";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
@@ -9,6 +10,7 @@ import { motion } from "motion/react";
 export default function Hero() {
   return (
     <section className="relative isolate flex h-[1139px] w-full max-w-full flex-col items-center bg-white md:h-[1400px] lg:h-[1450px]">
+      <TrackSectionView name="hero" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[url('/images/decals/Background%20Tile.jpg')] bg-repeat opacity-20"
@@ -72,7 +74,7 @@ export default function Hero() {
           </div>
 
           <motion.div variants={fadeUp}>
-            <CTA />
+            <CTA location="hero" />
           </motion.div>
         </motion.div>
       </div>

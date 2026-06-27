@@ -1,5 +1,6 @@
 "use client";
 
+import TrackSectionView from "@/components/analytics/TrackSectionView";
 import {
   ProductHighlight,
   ProductHighlightBody,
@@ -13,7 +14,8 @@ import { motion } from "motion/react";
 
 export default function ProductHighlightsSection() {
   return (
-    <section className="w-full max-w-full">
+    <section className="relative w-full max-w-full">
+      <TrackSectionView name="product_highlights" />
       <div
         data-lenis-prevent-horizontal
         className={[

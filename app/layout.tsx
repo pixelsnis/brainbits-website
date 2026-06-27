@@ -1,3 +1,4 @@
+import { PostHogProvider } from "./providers";
 import { MotionConfig } from "motion/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
@@ -38,7 +39,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} h-full overflow-x-hidden antialiased`}
     >
       <body className="flex min-h-full flex-col overflow-x-hidden bg-white font-sans">
-        <MotionConfig reducedMotion="user">{children}</MotionConfig>
+        <MotionConfig reducedMotion="user">
+          <PostHogProvider>{children}</PostHogProvider>
+        </MotionConfig>
       </body>
     </html>
   );

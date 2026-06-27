@@ -1,5 +1,6 @@
 "use client";
 
+import TrackSectionView from "@/components/analytics/TrackSectionView";
 import CTA from "@/components/ui/CTA";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { motion } from "motion/react";
 export default function DownloadSection() {
   return (
     <section className="relative isolate flex min-h-[640px] w-full flex-col items-center justify-center gap-8 overflow-hidden bg-white md:min-h-[740px] lg:min-h-[560px]">
+      <TrackSectionView name="download" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 flex flex-col items-center justify-center gap-8"

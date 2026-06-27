@@ -1,5 +1,6 @@
 "use client";
 
+import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
 import { EASE } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,7 +34,17 @@ export default function Navbar() {
             whileHover={{ y: -1 }}
             transition={{ duration: 0.35, ease: EASE }}
           >
-            <Link href="#features" className="hover:opacity-80">
+            <Link
+              href="#features"
+              className="hover:opacity-80"
+              onClick={() =>
+                trackNavLinkClick({
+                  linkText: "Features",
+                  location: "navbar",
+                  target: "internal",
+                })
+              }
+            >
               Features
             </Link>
           </motion.span>
@@ -47,6 +58,7 @@ export default function Navbar() {
               className="font-medium hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackAppStoreClick("navbar", "Download")}
             >
               Download
             </a>

@@ -1,14 +1,16 @@
 "use client";
 
+import { trackAppStoreClick, type AppStoreLocation } from "@/lib/analytics";
+import { APP_STORE_URL } from "@/lib/constants/links";
 import { EASE } from "@/lib/motion";
 import { motion } from "motion/react";
-import { APP_STORE_URL } from "@/lib/constants/links";
 
 type CTAProps = {
   href?: string;
   label?: string;
   finePrint?: string;
   className?: string;
+  location?: AppStoreLocation;
 };
 
 export default function CTA({
@@ -16,6 +18,7 @@ export default function CTA({
   label = "Get it on the App Store",
   finePrint = "iOS 26.0 and above. For iPhone only.",
   className,
+  location = "download_section",
 }: CTAProps) {
   return (
     <div
@@ -30,6 +33,7 @@ export default function CTA({
         className="group relative flex items-center justify-center rounded-full px-6 py-2.5"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackAppStoreClick(location, label)}
       >
         <span
           aria-hidden

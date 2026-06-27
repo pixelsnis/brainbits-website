@@ -1,5 +1,6 @@
 "use client";
 
+import TrackSectionView from "@/components/analytics/TrackSectionView";
 import {
   FeatureCard,
   FeatureCardBody,
@@ -16,8 +17,9 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="flex w-full max-w-full justify-center px-0 md:px-8"
+      className="relative flex w-full max-w-full justify-center px-0 md:px-8"
     >
+      <TrackSectionView name="features" />
       <div className="flex w-full max-w-[840px] flex-col gap-16 md:gap-4">
         <motion.div
           variants={fadeUp}
