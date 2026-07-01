@@ -3,7 +3,6 @@
 import TrackSectionView from "@/components/analytics/TrackSectionView";
 import CTA from "@/components/ui/CTA";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import Image from "next/image";
 import { motion } from "motion/react";
 
 export default function DownloadSection() {
@@ -18,12 +17,10 @@ export default function DownloadSection() {
           <div className="relative size-[100px]">
             <div className="absolute top-1/2 left-1/2 size-[796px] -translate-x-1/2 -translate-y-1/2 -scale-y-100 md:size-[1280px]">
               <div className="relative size-full">
-                <Image
+                <img
                   src="/images/decals/App Grid.svg"
                   alt=""
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 767px) 796px, 1280px"
+                  className="absolute inset-0 size-full object-contain"
                 />
               </div>
             </div>
@@ -61,13 +58,14 @@ export default function DownloadSection() {
         className="relative z-10 flex w-full flex-col items-center gap-4 px-4"
       >
         <motion.div variants={fadeUp}>
-          <Image
+          <img
             src="/images/App Icon.webp"
             alt="Brainbits app icon"
             width={100}
             height={100}
             className="size-[100px] object-cover"
-            priority
+            loading="eager"
+            fetchPriority="high"
           />
         </motion.div>
         <motion.h2

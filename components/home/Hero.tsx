@@ -4,7 +4,6 @@ import TrackSectionView from "@/components/analytics/TrackSectionView";
 import CTA from "@/components/ui/CTA";
 import Navbar from "@/components/layout/Navbar";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
-import Image from "next/image";
 import { motion } from "motion/react";
 
 export default function Hero() {
@@ -13,7 +12,7 @@ export default function Hero() {
       <TrackSectionView name="hero" />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[url('/images/decals/Background%20Tile.jpg')] bg-repeat opacity-20"
+        className="pointer-events-none absolute inset-0 bg-[url('/images/decals/Background%20Tile.svg')] bg-[length:440px_440px] bg-repeat"
       />
       <div
         aria-hidden
@@ -36,13 +35,14 @@ export default function Hero() {
           className="flex w-full max-w-full flex-col items-center gap-6 px-4 pt-[90px] md:gap-6 md:px-8 md:pt-0 lg:max-w-[752px] lg:px-0"
         >
           <motion.div variants={fadeUp} className="md:hidden">
-            <Image
+            <img
               src="/images/icons/brainbits.png"
               alt="Brainbits"
               width={35}
               height={32}
               className="h-8 w-[35px] shrink-0"
-              priority
+              loading="eager"
+              fetchPriority="high"
             />
           </motion.div>
 
@@ -86,13 +86,12 @@ export default function Hero() {
         transition={{ duration: 1.15, ease: EASE, delay: 0.7 }}
         className="relative z-10 mt-auto min-h-px w-full max-w-full flex-1 lg:aspect-[1910/2018] lg:max-w-[970px] lg:flex-none"
       >
-        <Image
+        <img
           src="/images/Hero Product Screenshot.webp"
           alt="Brainbits app on iPhone surrounded by floral illustrations"
-          fill
-          className="object-cover"
-          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 834px, 970px"
-          priority
+          className="absolute inset-0 size-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
       </motion.div>
     </section>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Children,
   cloneElement,
@@ -89,7 +88,11 @@ function FeatureCardThumbnail({
         .join(" ")}
     >
       {hasImage && (
-        <Image src={src!} alt={alt} fill className="object-cover" sizes="360px" />
+        <img
+          src={src!}
+          alt={alt}
+          className="absolute inset-0 size-full object-cover"
+        />
       )}
     </div>
   );

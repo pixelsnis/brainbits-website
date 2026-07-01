@@ -12,7 +12,6 @@ import {
 } from "@/lib/constants/links";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { isAppStoreUrl } from "@/lib/utm";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 
@@ -123,26 +122,20 @@ export default function Footer() {
   return (
     <footer className="relative flex min-h-[740px] w-full max-w-full flex-col justify-end gap-6 overflow-hidden bg-[#f4f4f2] px-4 pt-4 pb-16 md:min-h-[900px] md:gap-8 md:p-8 lg:min-h-[740px]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <Image
+        <img
           src="/images/footer/mobile.webp"
           alt=""
-          fill
-          className="object-cover object-top md:hidden"
-          sizes="100vw"
+          className="absolute inset-0 size-full object-cover object-top md:hidden"
         />
-        <Image
+        <img
           src="/images/footer/tablet.webp"
           alt=""
-          fill
-          className="hidden object-cover object-top md:block lg:hidden"
-          sizes="100vw"
+          className="absolute inset-0 hidden size-full object-cover object-top md:block lg:hidden"
         />
-        <Image
+        <img
           src="/images/footer/desktop.webp"
           alt=""
-          fill
-          className="hidden object-cover object-top lg:block"
-          sizes="100vw"
+          className="absolute inset-0 hidden size-full object-cover object-top lg:block"
         />
       </div>
 

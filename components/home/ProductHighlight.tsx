@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 type ProductHighlightProps = {
@@ -42,7 +41,7 @@ function ProductHighlightIcon({
         .filter(Boolean)
         .join(" ")}
     >
-      <Image src={src} alt={alt} width={180} height={180} />
+      <img src={src} alt={alt} width={180} height={180} />
     </div>
   );
 }

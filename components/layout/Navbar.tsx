@@ -4,7 +4,6 @@ import ComingSoonLink from "@/components/ui/ComingSoonLink";
 import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
 import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
 import { EASE } from "@/lib/motion";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 
@@ -22,13 +21,14 @@ export default function Navbar() {
         className="flex w-full items-start justify-between"
       >
         <Link href="/" className="shrink-0" aria-label="Brainbits home">
-          <Image
+          <img
             src="/images/icons/brainbits.png"
             alt=""
             width={27}
             height={24}
             className="h-6 w-[27px]"
-            priority
+            loading="eager"
+            fetchPriority="high"
           />
         </Link>
         <div className="flex items-center gap-8 text-nav text-black">
