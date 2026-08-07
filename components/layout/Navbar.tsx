@@ -1,0 +1,77 @@
+"use client";
+
+import ComingSoonLink from "@/components/ui/ComingSoonLink";
+import { trackAppStoreClick, trackNavLinkClick } from "@/lib/analytics";
+import { useAppStoreUrl } from "@/hooks/useAppStoreUrl";
+import { EASE } from "@/lib/motion";
+import Link from "next/link";
+import { motion } from "motion/react";
+
+export default function Navbar() {
+  const appStoreUrl = useAppStoreUrl();
+  return (
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+      className="relative z-20 w-full shrink-0 p-6"
+    >
+      <nav
+        aria-label="Main"
+        className="flex w-full items-start justify-between"
+      >
+        <Link href="/" className="shrink-0" aria-label="Brainbits home">
+          <img
+            src="/images/icons/brainbits.png"
+            alt=""
+            width={27}
+            height={24}
+            className="h-6 w-[27px]"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </Link>
+        <div className="flex items-center gap-8 text-nav text-black">
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <Link
+              href="#features"
+              className="hover:opacity-80"
+              onClick={() =>
+                trackNavLinkClick({
+                  linkText: "Features",
+                  location: "navbar",
+                  target: "internal",
+                })
+              }
+            >
+              Features
+            </Link>
+          </motion.span>
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <ComingSoonLink className="text-nav text-black">API</ComingSoonLink>
+          </motion.span>
+          <motion.span
+            whileHover={{ y: -1 }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <a
+              href={appStoreUrl}
+              className="font-medium hover:opacity-80"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackAppStoreClick("navbar", "Download")}
+            >
+              Download
+            </a>
+          </motion.span>
+        </div>
+      </nav>
+    </motion.header>
+  );
+}

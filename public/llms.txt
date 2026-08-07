@@ -1,0 +1,26 @@
+# Brainbits
+
+> An AI-native notes app for iOS. Capture ideas instantly, get answers from your notes, and stay organized without the friction.
+
+Brainbits is designed for quick capture and long-term thinking. Notes save on device instantly — sync and AI processing run in the background so you're never waiting on a spinner.
+
+## Key facts
+
+- Platform: iOS (native Swift app, under 25 MB)
+- Pricing: Generous free tier subject to limits; low-cost monthly subscription for premium features
+- Capture: Saves on device instantly; network calls happen in the background
+- AI: Cloud-based processing for organization and note search; zero data retention with AI providers
+- Tagline: Note now, think later.
+
+## Pages
+
+- [Home](https://www.usebrainbits.com/)
+- [Privacy Policy](https://www.usebrainbits.com/privacy)
+- [Terms of Use](https://www.usebrainbits.com/terms)
+
+## Links
+
+- [Download on the App Store](https://apps.apple.com/app/id6753618169)
+- [Threads](https://threads.net/usebrainbits)
+- [Instagram](https://instagram.com/usebrainbits)
+- Contact: aneesh@usebrainbits.com

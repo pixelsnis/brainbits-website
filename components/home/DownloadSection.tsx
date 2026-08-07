@@ -1,0 +1,92 @@
+"use client";
+
+import TrackSectionView from "@/components/analytics/TrackSectionView";
+import CTA from "@/components/ui/CTA";
+import { fadeUp, staggerContainer } from "@/lib/motion";
+import { motion } from "motion/react";
+
+export default function DownloadSection() {
+  return (
+    <section className="relative isolate flex min-h-[640px] w-full flex-col items-center justify-center gap-8 overflow-hidden bg-white md:min-h-[740px] lg:min-h-[560px]">
+      <TrackSectionView name="download" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 flex flex-col items-center justify-center gap-8"
+      >
+        <div className="flex flex-col items-center gap-4 px-4">
+          <div className="relative size-[100px]">
+            <div className="absolute top-1/2 left-1/2 size-[796px] -translate-x-1/2 -translate-y-1/2 -scale-y-100 md:size-[1280px]">
+              <div className="relative size-full">
+                <img
+                  src="/images/decals/App Grid.svg"
+                  alt=""
+                  className="absolute inset-0 size-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+          <h2 className="text-h2-cta invisible text-center" aria-hidden>
+            Catch Your Lighting in
+            <br />
+            This Bottle.
+          </h2>
+        </div>
+        <div className="invisible px-4" aria-hidden>
+          <CTA label="Download Brainbits" />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[35%]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[35%]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
+          }}
+        />
+      </div>
+
+      <motion.div
+        variants={staggerContainer(0.18)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-10 flex w-full flex-col items-center gap-4 px-4"
+      >
+        <motion.div variants={fadeUp}>
+          <img
+            src="/images/App Icon.webp"
+            alt="Brainbits app icon"
+            width={100}
+            height={100}
+            className="size-[100px] object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </motion.div>
+        <motion.h2
+          variants={fadeUp}
+          className="text-h2-cta text-center text-black"
+        >
+          Catch Your Lighting in
+          <br />
+          This Bottle.
+        </motion.h2>
+      </motion.div>
+
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative z-10 px-4"
+      >
+        <CTA label="Download Brainbits" />
+      </motion.div>
+    </section>
+  );
+}
