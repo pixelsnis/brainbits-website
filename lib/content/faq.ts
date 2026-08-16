@@ -17,7 +17,7 @@ export const FAQ_ITEMS = [
   {
     question: "What platforms does Brainbits support?",
     answer:
-      "Brainbits is available on iOS today as a native Swift app under 25 MB. It is designed specifically for iPhone with instant capture and background sync. Android and web versions are not available at this time.",
+      "Brainbits is available on iOS today as a native Swift app under 30 MB. It is designed specifically for iPhone with instant capture and background sync. Android and web versions are not available at this time.",
   },
   {
     question: "How much does Brainbits cost?",

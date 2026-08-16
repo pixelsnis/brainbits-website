@@ -95,7 +95,7 @@ export default function ProductHighlightsSection() {
                   Native &amp; Lightweight
                 </ProductHighlightTitle>
                 <ProductHighlightDescription>
-                  Under 25 MB. Zero bloat. It feels like it belongs on your
+                  Under 30 MB. Zero bloat. It feels like it belongs on your
                   phone because it was built just for it.
                 </ProductHighlightDescription>
               </ProductHighlightBody>

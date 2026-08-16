@@ -6,7 +6,7 @@ Brainbits is designed for quick capture and long-term thinking. Notes save on de
 
 ## Key facts
 
-- Platform: iOS (native Swift app, under 25 MB)
+- Platform: iOS (native Swift app, under 30 MB)
 - Pricing: Generous free tier subject to limits; low-cost monthly subscription for premium features
 - Capture: Saves on device instantly; network calls happen in the background
 - AI: Cloud-based processing for organization and note search; zero data retention with AI providers
