@@ -38,9 +38,6 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,11 +62,7 @@ export const metadata: Metadata = {
     images: [OG_IMAGE_PATH],
   },
   robots: {
-    index: true,
-    follow: true,
     googleBot: {
-      index: true,
-      follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
