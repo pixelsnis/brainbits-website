@@ -26,7 +26,7 @@ export default function DownloadSection() {
             </div>
           </div>
           <h2 className="text-h2-cta invisible text-center" aria-hidden>
-            Catch Your Lighting in
+            Catch Your Lightning in
             <br />
             This Bottle.
           </h2>
@@ -72,7 +72,7 @@ export default function DownloadSection() {
           variants={fadeUp}
           className="text-h2-cta text-center text-black"
         >
-          Catch Your Lighting in
+          Catch Your Lightning in
           <br />
           This Bottle.
         </motion.h2>
